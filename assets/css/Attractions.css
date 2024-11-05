@@ -1,0 +1,370 @@
+@charset "UTF-8";
+/* Общие стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat";
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.header {
+  background-color: #ebf8df;
+}
+.header__wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.header__box {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.header__menu {
+  display: flex;
+  gap: 100px;
+}
+.header__item {
+  list-style: none;
+}
+.header__logo {
+  width: 50px;
+  height: 50px;
+}
+.header__link {
+  font-size: 24px;
+  color: #2e2e2e;
+  text-decoration: none;
+}
+.header__link:hover {
+  color: rgb(0, 0, 0);
+}
+.header__menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+.header__menu-toggle .bar {
+  height: 3px;
+  width: 25px;
+  background-color: #2e2e2e;
+  margin: 4px 0;
+  border-radius: 3px;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+  .header__wrap {
+    padding: 10px 20px;
+  }
+  .header__menu {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .header__menu-toggle {
+    display: flex;
+    width: 100%;
+  }
+  .header__menu.active {
+    display: flex;
+    z-index: 1;
+  }
+  .header__link {
+    font-size: 18px;
+  }
+}
+/* Дополнительный медиа-запрос для очень маленьких экранов */
+@media (max-width: 480px) {
+  .header__wrap {
+    padding: 10px;
+  }
+  .header__logo {
+    width: 40px;
+    height: 40px;
+  }
+  .header__menu {
+    top: 50px;
+  }
+  .header__link {
+    font-size: 16px;
+  }
+}
+/* Дополнительный медиа-запрос для средних экранов */
+@media (max-width: 1024px) {
+  .header__menu {
+    gap: 50px;
+  }
+  .header__link {
+    font-size: 20px;
+  }
+  .header__nav {
+    font-size: 10px;
+  }
+}
+.main__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.main__title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.main__search {
+  flex-grow: 1;
+  margin: 0 10px;
+  text-align: center;
+}
+.main__search-form {
+  width: auto;
+  display: inline-block;
+}
+.main__search-input {
+  width: 250px;
+  height: 42px;
+  padding-left: 15px;
+  border-radius: 42px;
+  border: 1.5px solid #324b4e;
+  background: #ebf8df;
+  outline: none;
+  position: relative;
+  transition: 0.3s linear;
+}
+.main__search-input:focus {
+  width: 300px;
+}
+
+.sort__container {
+  position: relative;
+  display: inline-block;
+}
+.sort__container-button {
+  background-color: #ebf8df;
+  color: #000;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 42px;
+  border: 1.5px solid #324b4e;
+  cursor: pointer;
+}
+.sort__container-dropdown {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.sort__container-dropdown--show {
+  display: block;
+}
+.sort__container-ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.sort__container-link {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  color: #2e2e2e;
+}
+.sort__container-link:hover {
+  background-color: #f1f1f1;
+}
+
+.card {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.article {
+  margin-bottom: 20px;
+  max-width: 800px;
+}
+.article h2 {
+  font-size: 30px;
+  margin-top: 100px;
+}
+.article p {
+  margin-top: 30px;
+  font-size: 26px;
+}
+.article img {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  max-height: 500px;
+  margin-top: 20px;
+  display: block;
+  border-radius: 30px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+.pagination li {
+  margin: 0 5px;
+}
+.pagination a {
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  color: #333;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.pagination a:hover {
+  background-color: #ebf8df;
+}
+.pagination .active a {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .main__search-input {
+    width: 200px;
+  }
+  .main__search-input:focus {
+    width: 250px;
+  }
+  .main .article h2 {
+    font-size: 24px;
+    margin-top: 50px;
+  }
+  .main .article p {
+    font-size: 20px;
+  }
+  .main .pagination {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .main__title-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .main__search {
+    margin: 10px 0;
+  }
+  .main__search-input {
+    width: 100%;
+  }
+  .main__search-input:focus {
+    width: 100%;
+  }
+  .main .sort__container {
+    width: 100%;
+  }
+  .main .sort__container-button {
+    width: 100%;
+    text-align: center;
+  }
+  .main .article h2 {
+    font-size: 20px;
+    margin-top: 30px;
+  }
+  .main .article p {
+    font-size: 18px;
+  }
+  .main .pagination {
+    margin-bottom: 10px;
+  }
+  .main .pagination a {
+    padding: 3px 8px;
+  }
+}
+.footer {
+  background-color: #ebf8df;
+  padding: 40px 0;
+}
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.footer__logo-cont {
+  text-align: center;
+}
+.footer__logo {
+  width: 50px;
+  height: 50px;
+}
+.footer__p {
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 10px;
+  color: #6a6a6a;
+}
+.footer__nav {
+  margin-top: 40px;
+}
+.footer__menu {
+  list-style: none;
+  color: #6a6a6a;
+  padding: 0;
+}
+.footer a {
+  color: #6a6a6a;
+  text-decoration: none;
+}
+.footer__item {
+  margin-bottom: 10px;
+}
+.footer__info {
+  color: #6a6a6a;
+  margin-top: 20px;
+}
+.footer__icon {
+  display: flex;
+  margin-top: 20px;
+}
+.footer__icon-vk {
+  margin-right: 20px;
+}
+.footer__icon-inst {
+  margin-right: 20px;
+}
+.footer__icon-tg {
+  margin-right: 20px;
+}
+.footer__number, .footer__mail {
+  margin-top: 15px;
+  font-size: 16px;
+}
+@media (max-width: 768px) {
+  .footer__container {
+    flex-direction: column;
+    align-items: center;
+  }
+}/*# sourceMappingURL=Attractions.css.map */

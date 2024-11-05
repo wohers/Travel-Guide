@@ -1,0 +1,466 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat";
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+.header {
+    background-color: #ebf8df;
+    
+    &__wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    &__box {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__menu {
+        display: flex;
+        gap: 100px;
+    }
+    
+    &__item{
+        list-style: none;
+    }
+
+    &__logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    &__link {
+        font-size: 24px;
+        color: #2e2e2e;
+        text-decoration: none;
+
+        &:hover {
+            color: rgb(0, 0, 0);
+        }
+    }
+
+    &__menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+
+        .bar {
+            height: 3px;
+            width: 25px;
+            background-color: #2e2e2e;
+            margin: 4px 0;
+            border-radius: 3px;
+        }
+    }
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+    .header {
+        &__wrap {
+            padding: 10px 20px;
+        }
+
+        &__menu {
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+            width: 100%;
+            background-color: #fff;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        &__menu-toggle {
+            display: flex;
+            width: 100%; 
+        }
+
+        &__menu.active {
+            display: flex;
+            z-index: 1;
+        }
+
+        &__link {
+            font-size: 18px;
+        }
+    }
+}
+
+/* Дополнительный медиа-запрос для очень маленьких экранов */
+@media (max-width: 480px) {
+    .header {
+        &__wrap {
+            padding: 10px;
+        }
+
+        &__logo {
+            width: 40px;
+            height: 40px;
+        }
+
+        &__menu {
+            top: 50px;
+        }
+
+        &__link {
+            font-size: 16px;
+        }
+    }
+}
+
+/* Дополнительный медиа-запрос для средних экранов */
+@media (max-width: 1024px) {
+    .header {
+        &__menu {
+            gap: 50px;
+        }
+
+        &__link {
+            font-size: 20px;
+        }
+        &__nav {
+            font-size: 10px;
+        }
+    }
+}
+
+
+
+
+.main {
+    &__container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    &__title-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+        flex-wrap: wrap; // Добавляем перенос элементов на новую строку
+    }
+
+    &__search {
+        flex-grow: 1;
+        margin: 0 10px;
+        text-align: center;
+
+        &-form {
+            width: auto;
+            display: inline-block;
+        }
+
+        &-input {
+            width: 250px;
+            height: 42px;
+            padding-left: 15px;
+            border-radius: 42px;
+            border: 1.5px solid #324b4e;
+            background: #ebf8df;
+            outline: none;
+            position: relative;
+            transition: .3s linear;
+        }
+
+        &-input:focus {
+            width: 300px;
+        }
+    }
+}
+
+.sort {
+    &__container {
+        position: relative;
+        display: inline-block;
+
+        &-button {
+            background-color: #ebf8df;
+            color: #000;
+            padding: 12px;
+            font-size: 14px;
+            border-radius: 42px;
+            border: 1.5px solid #324b4e;
+            cursor: pointer;
+        }
+
+        &-dropdown {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+
+            &--show{
+                display: block;
+            }
+        }
+
+        &-ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        &-link {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;color: #2e2e2e;
+        }
+
+        &-link:hover {
+            background-color: #f1f1f1;
+        }
+    }
+}
+
+.card {
+    width: 100%;
+    max-width: 1000px;   
+}
+
+.article {
+    margin-bottom: 20px;
+    max-width: 800px;
+
+    h2 {
+        font-size: 30px;
+        margin-top: 100px;
+    }
+
+    p {
+        margin-top: 30px;
+        font-size: 26px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        width: 100%;
+        max-height: 500px;
+        margin-top: 20px;
+        display: block;
+        border-radius: 30px;
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+
+    li {
+        margin: 0 5px;
+    }
+
+    a {
+        text-decoration: none;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        color: #333;
+        border-radius: 3px;
+        background-color: #fff;
+    }
+
+    a:hover {
+        background-color: #ebf8df;
+    }
+
+    .active a {
+        background-color: #007bff;
+        color: #fff;
+        border-color: #007bff;
+    }
+}
+
+
+
+
+@media (max-width: 768px) {
+    .main {
+        &__search {
+            &-input {
+                width: 200px;
+            }
+
+            &-input:focus {
+                width: 250px;
+            }
+        }
+
+        .article {
+            h2 {
+                font-size: 24px;
+                margin-top: 50px;
+            }
+
+            p {
+                font-size: 20px;
+            }
+        }
+
+        .pagination {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .main {
+        &__title-container {
+            flex-direction: column; // Элементы будут располагаться вертикально
+            align-items: stretch; // Растягиваем элементы по ширине контейнера
+        }
+
+        &__search {
+            margin: 10px 0; // Добавляем отступы сверху и снизу
+
+            &-input {
+                width: 100%; // Занимаем всю доступную ширину
+            }
+
+            &-input:focus {
+                width: 100%; // Занимаем всю доступную ширину при фокусе
+            }
+        }
+
+        .sort {
+            &__container {
+                width: 100%; // Занимаем всю доступную ширину
+
+                &-button {
+                    width: 100%; // Занимаем всю доступную ширину
+                    text-align: center; // Центрируем текст
+                }
+            }
+        }
+
+        .article {
+            h2 {
+                font-size: 20px;
+                margin-top: 30px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+        }
+
+        .pagination {
+            margin-bottom: 10px;
+
+            a {
+                padding: 3px 8px;
+            }
+        }
+    }
+}
+
+// FOOTER //
+
+.footer {
+    background-color: #ebf8df;
+    padding: 40px 0;
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    &__logo-cont{
+        text-align: center;
+    }
+
+    &__logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    &__p {
+        font-size: 13px;
+        font-weight: 500;
+        margin-top: 10px;
+        color: #6a6a6a;
+    }
+
+    &__nav {
+        margin-top: 40px;
+    }
+
+    &__menu {
+        list-style: none;
+        color: #6a6a6a;
+        padding: 0;
+    }
+
+    a {
+        color: #6a6a6a;
+        text-decoration: none;
+    }
+
+    &__item {
+        margin-bottom: 10px;
+    }
+
+
+    &__info {
+        color: #6a6a6a;
+        margin-top: 20px;
+    }
+
+    &__icon{
+        display: flex;
+        margin-top: 20px;
+
+        &-vk{
+            margin-right: 20px;
+        }
+        &-inst{
+            margin-right: 20px;
+        }
+        &-tg{
+            margin-right: 20px;
+        }
+    }
+
+    &__number, &__mail {
+        margin-top: 15px;
+        font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+        &__container {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
