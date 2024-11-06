@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {  /// это гара�
     });
 
     const articlesContainer = document.getElementById('articles'); //  этот код находит элемент articles и сохраняет его в переменную 
+    const detailsContainer = document.getElementById('details');
+    const modalContent = document.getElementById('modal-details');
+    const backButton = document.querySelector('.back-button');    
+    const sortLinks = document.querySelectorAll('.sort__container-link'); 
     const paginationContainer = document.getElementById('pagination'); // этот код находит элемент pagination и сохраняет его в переменную 
     const searchInput = document.getElementById('searchInput');  //  эот код находит элемент searchInput и сохраняет его в переменную 
     const sortButton = document.querySelector('.sort__container-button'); //  этот код находит первый элемент с классом sort__container-button и сохраняет его в переменную 
@@ -179,164 +183,156 @@ document.addEventListener('DOMContentLoaded', function() {  /// это гара�
         },
     ];
 
-    function displayArticles(page, filteredArticles) {
-    // очищаем контейнер статей
-    articlesContainer.innerHTML = '';
+    // Функция для показа статей
+    function displayArticles(articles) {
+        articlesContainer.innerHTML = '';
 
-    // ыычисляем начальные и конечные индексы для текущей страницы
-    const start = (page - 1) * articlesPerPage;
-    const end = start + articlesPerPage;
+        articles.forEach(article => {
+            const articleDiv = document.createElement('div');
+            articleDiv.classList.add('article');
+            articleDiv.setAttribute('data-id', article.id);
 
-    // получаем статьи для текущей страницы
-    const pageArticles = filteredArticles.slice(start, end);
+            const title = document.createElement('h2');
+            title.textContent = article.title;
 
-    // проходим по каждой статье и создаем HTML-элементы для отображения
-    pageArticles.forEach(article => {
-        const articleDiv = document.createElement('div'); // создается контейнер div для каждой статьи с классом article
-        articleDiv.classList.add('article');
+            const img = document.createElement('img');
+            img.src = article.image;
+            img.alt = article.title;
 
-        const title = document.createElement('h2'); // создается заголовок h2 с классом article__title и текстом, равным article.title
-        title.classList.add('article__title');
-        title.textContent = article.title;
+            const content = document.createElement('p');
+            content.textContent = article.content.substring(0, 150) + '  Читать дальше...';
 
-        const contentBeforeImage = document.createElement('p'); // Создается абзац p с первыми двумя фразами из article.content
-        contentBeforeImage.textContent = article.content.split('.').slice(0, 1).join('. ') + '.'; // Первые две фразы
+            articleDiv.appendChild(title);
+            articleDiv.appendChild(img);
+            articleDiv.appendChild(content);
+            articlesContainer.appendChild(articleDiv);
+        });
 
-        const image = document.createElement('img'); // создается изображение img с классом article__image 
-        image.classList.add('article__image');
-        image.src = article.image;
-        image.alt = article.title;
+        const articleElements = document.querySelectorAll('.article');
+        articleElements.forEach(article => {
+            article.addEventListener('click', function() {
+                const articleId = this.getAttribute('data-id');
+                const selectedArticle = articles.find(a => a.id == articleId);
+                displayDetails(selectedArticle);
+                toggleFullScreen();
+            });
+        });
+    }
 
-        const contentAfterImage = document.createElement('p');
-        contentAfterImage.textContent = article.content.split('.').slice(1).join('. ') + '.'; // остальные фразы
+    // Отображаем статьи
+    displayArticles(articles);
 
-        articleDiv.appendChild(title);
-        articleDiv.appendChild(contentBeforeImage);
-        articleDiv.appendChild(image);
-        articleDiv.appendChild(contentAfterImage);
-        articlesContainer.appendChild(articleDiv); // все элементы добавляются в контейнер статьи а затем контейнер статьи добавляется в articlesContainer
+    // Функция для отображения подробной информации о статье
+    function displayDetails(article) {
+        modalContent.innerHTML = `
+            <h2>${article.title}</h2>
+            <img src="${article.image}" alt="${article.title}">
+            <p>${article.content}</p>
+        `;
+    }
+
+    // Функция для переключения на отображение только подробной информации
+    function toggleFullScreen() {
+        articlesContainer.classList.toggle('hidden');
+        detailsContainer.classList.toggle('hidden');
+    }
+
+    // Обработчик события для возврата на главную страницу
+    backButton.addEventListener('click', function() {
+        toggleFullScreen();
     });
-}
 
-    // функция для отображения пагинации
+    // Функция для отображения пагинации
     function displayPagination(filteredArticles) {
         paginationContainer.innerHTML = '';
         const pageCount = Math.ceil(filteredArticles.length / articlesPerPage);
 
         for (let i = 1; i <= pageCount; i++) {
-            const li = document.createElement('li'); // создается элемент li с классом pagination__item
+            const li = document.createElement('li');
             li.classList.add('pagination__item');
-            const a = document.createElement('a'); // создается элемент<a с классом pagination__link, href равным # и текстом, равным номеру страницы i
+            const a = document.createElement('a');
             a.classList.add('pagination__link');
             a.href = '#';
             a.textContent = i;
-            if (i === currentPage) {    // если номер страницы i совпадает с текущей страницей currentPage, добавляется класс pagination__item--active к элементу, чтобы выделить текущую страницу
+            if (i === currentPage) {
                 li.classList.add('pagination__item--active');
             }
-            a.addEventListener('click', function(e) { // добавляется обработчик события click к элементу <a>, который
-                e.preventDefault(); // предотвращает стандартное поведение ссылки (e.preventDefault())
-                currentPage = i; // обновляет текущую страницу currentPage на i
-                displayArticles(currentPage, filteredArticles); // ызывает функцию displayArticles для отображения статей на новой странице
-                displayPagination(filteredArticles); 
+            a.addEventListener('click', function(e) {
+                e.preventDefault();
+                currentPage = i;
+                const start = (currentPage - 1) * articlesPerPage;
+                const end = start + articlesPerPage;
+                displayArticles(filteredArticles.slice(start, end));
+                displayPagination(filteredArticles);
             });
-            li.appendChild(a); // <li> добавляется в paginationContainer
+            li.appendChild(a);
             paginationContainer.appendChild(li);
         }
     }
 
-    // функция для фильтрации статей
-    function filterArticles(query) { // функция проверяет каждую статью article в массиве
-        return articles.filter(article => {
-            return article.title.toLowerCase().includes(query) || article.content.toLowerCase().includes(query); // Преобразует article.title и article.content в нижний регистр с помощью метода toLowerCase()
-        });
+    displayPagination(articles);
+
+    // Функция для фильтрации статей по запросу
+    function filterArticles(query) {
+        return articles.filter(article => article.title.toLowerCase().includes(query.toLowerCase()));
     }
 
-    // функция для фильтрации статей по категории
+    // Функция для фильтрации статей по категории
     function filterArticlesByCategory(category) {
-        const categoryIds = {
-            parks: [1, 2, 3, 4, 13],   // 1, 2, 3, 4, 13 статьи про парки
-            monuments: [5, 6, 7], 
-            churches: [8, 9, 10, 11, 12],
-            landmark: [14, 15, 16, 17, 18, 19, 20, 21, 22]
-        }; 
-
-        return articles.filter(article => {
-            return categoryIds[category].includes(article.id);
-        });
+        return articles.filter(article => article.category === category);
     }
 
-    // для поиска
+    // Обработчик события для поиска
     searchInput.addEventListener('input', function() {
-    const query = searchInput.value.toLowerCase();  // получаем значение поля ввода поиска и приводим его к нижнему регистру
-    const filteredArticles = filterArticles(query);    // фильтруем статьи на основе поискового запроса
-    currentPage = 1;  // сбрасываем текущую страницу на первую при новом поиске
-    displayArticles(currentPage, filteredArticles);      // отображаем отфильтрованные статьи на первой странице
-    displayPagination(filteredArticles);     // отображаем пагинацию для отфильтрованных статей
-});
+        const query = searchInput.value.toLowerCase();
+        const filteredArticles = filterArticles(query);
+        currentPage = 1;
+        const start = (currentPage - 1) * articlesPerPage;
+        const end = start + articlesPerPage;
+        displayArticles(filteredArticles.slice(start, end));
+        displayPagination(filteredArticles);
+    });
 
-    // для кнопки сортировки
+    // Обработчик события для кнопки сортировки
     sortButton.addEventListener('click', function(event) {
-        event.stopPropagation(); // предотвращаем всплытие события
+        event.stopPropagation();
         sortDropdown.classList.toggle('sort__container-dropdown--show');
     });
 
-    // закрытие выпадающего списка при клике вне его
-    window.addEventListener('click', function(event) {
-        if (!event.target.matches('.sort__container-button')) {
-            var dropdowns = document.getElementsByClassName("sort__container-dropdown");
-            for (var i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('sort__container-dropdown--show')) {
-                    openDropdown.classList.remove('sort__container-dropdown--show');
-                }
-            }
-        }
-    });
-
-    //  для ссылок сортировки
-    document.querySelectorAll('.sort__container-link').forEach(link => {
+    // Обработчик события для ссылок сортировки
+    sortLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
             const order = this.getAttribute('data-order');
             const category = this.getAttribute('data-category');
-            if (order) {
-                sortItems(order);
+            if (order === 'asc') {
+                displayAllArticles();
             } else if (category) {
                 filterByCategory(category);
             }
         });
     });
 
-    // функция для сортировки элементов
-    function sortItems(order) {
-        if (order === 'asc') {
-            articles.sort((a, b) => a.title.localeCompare(b.title));
-        } else if (order === 'desc') {
-            articles.sort((a, b) => b.title.localeCompare(a.title));
-        }
-        currentPage = 1; // сбрасываем на первую страницу при сортировке
-        displayArticles(currentPage, articles);
+    // Функция для отображения всех статей
+    function displayAllArticles() {
+        currentPage = 1;
+        const start = (currentPage - 1) * articlesPerPage;
+        const end = start + articlesPerPage;
+        displayArticles(articles.slice(start, end));
         displayPagination(articles);
-        sortDropdown.classList.remove('sort__container-dropdown--show'); // скрываем выпадающий список после сортировки
+        sortDropdown.classList.remove('sort__container-dropdown--show');
     }
 
-    // функция для фильтрации по категории
+    // Функция для фильтрации по категории
     function filterByCategory(category) {
-    const filteredArticles = filterArticlesByCategory(category);  // фильтруем статьи по выбранной категории
-    currentPage = 1;      // сбрасываем текущую страницу на первую при фильтрации
-    displayArticles(currentPage, filteredArticles);      // отображаем отфильтрованные статьи на первой странице
-    displayPagination(filteredArticles);    // Отображаем пагинацию для отфильтрованных статей
-    sortDropdown.classList.remove('sort__container-dropdown--show');    // Скрываем выпадающий список после фильтрации
-    localStorage.setItem('lastCategory', category);     // cохраняем выбранную категорию в localStorage
-}
-
-    // Инициализация
-    const lastCategory = localStorage.getItem('lastCategory');
-    if (lastCategory) {
-        filterByCategory(lastCategory);
-    } else {
-        displayArticles(currentPage, articles);
-        displayPagination(articles);
+        const filteredArticles = filterArticlesByCategory(category);
+        currentPage = 1;
+        const start = (currentPage - 1) * articlesPerPage;
+        const end = start + articlesPerPage;
+        displayArticles(filteredArticles.slice(start, end));
+        displayPagination(filteredArticles);
+        sortDropdown.classList.remove('sort__container-dropdown--show');
+        localStorage.setItem('lastCategory', category);
     }
 });
 

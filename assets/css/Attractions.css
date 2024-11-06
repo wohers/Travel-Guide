@@ -11,6 +11,28 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Добавил */
+.hidden {
+  display: none;
+}
+
+.full-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.back-button {
+  margin: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
 .header {
   background-color: #ebf8df;
 }
@@ -128,7 +150,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 50px;
   flex-wrap: wrap;
 }
 .main__search {
@@ -206,6 +228,7 @@ html {
 .article h2 {
   font-size: 30px;
   margin-top: 100px;
+  cursor: pointer;
 }
 .article p {
   margin-top: 30px;
