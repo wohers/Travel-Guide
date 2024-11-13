@@ -18,56 +18,75 @@ document.addEventListener('DOMContentLoaded', function() {  /// это гара�
         
     ];
 
-    fetch('https://67322e8b2a1b1a4ae10f29a6.mockapi.io/guide/v1/articles')
+fetch('https://67322e8b2a1b1a4ae10f29a6.mockapi.io/guide/v1/articles')
     .then((response) => {
         if (!response.ok) {
             throw new Error('Error occurred');
         }
         return response.json();
     })
-    .then(data => {
-        console.log(data);
-        const articlesContainer = document.getElementById('articles');
-        const detailsContainer = document.getElementById('details');
+    .then(articlesData => {
+        return fetch('https://67322e8b2a1b1a4ae10f29a6.mockapi.io/guide/v1/details')
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Error occurred');
+                }
+                return response.json();
+            })
+            .then(detailsData => {
+                const combinedData = [];
 
-        data.forEach(item => {
-            const articleDiv = document.createElement('div');
-            articleDiv.classList.add('article');
-            articleDiv.setAttribute('data-id', item.id); // Добавляем атрибут data-id
+                articlesData.forEach(article => {
+                    const details = detailsData.find(detail => detail.id === article.id);
 
-            const title = document.createElement('h2');
-            title.textContent = item.title;
-            articleDiv.appendChild(title);
+                    if (details) {
+                        combinedData.push({ ...article, details });
+                    } else {
+                        combinedData.push({ ...article, details: {} });
+                    }
+                });
 
-            const img = document.createElement('img');
-            img.src = item.imageUrl;
-            img.alt = item.title;
-            articleDiv.appendChild(img);
+                console.log(combinedData);
+                const articlesContainer = document.getElementById('articles');
 
-            const content = document.createElement('p');
-            content.textContent = item.content.substring(0, 200) + '... Читать дальше...';
-            articleDiv.appendChild(content);
+                combinedData.forEach(item => {
+                    const articleDiv = document.createElement('div');
+                    articleDiv.classList.add('article');
+                    articleDiv.setAttribute('data-id', item.id); // Добавляем атрибут data-id
 
-            articlesContainer.appendChild(articleDiv);
-        });
+                    const title = document.createElement('h2');
+                    title.textContent = item.title;
+                    articleDiv.appendChild(title);
 
-        // Добавляем обработчик событий после создания всех статей
-        const articleElements = document.querySelectorAll('.article');
-        articleElements.forEach(article => {
-            article.addEventListener('click', function() {
-                const articleId = this.getAttribute('data-id');
-                const selectedArticle = data.find(a => a.id == articleId);
-                displayDetails(selectedArticle);
-                toggleFullScreen();
+                    const img = document.createElement('img');
+                    img.src = item.imageUrl;
+                    img.alt = item.title;
+                    articleDiv.appendChild(img);
+
+                    const content = document.createElement('p');
+                    content.textContent = item.content.substring(0, 200) + '... Читать дальше...';
+                    articleDiv.appendChild(content);
+
+                    articlesContainer.appendChild(articleDiv);
+                });
+
+                // Добавляем обработчик событий после создания всех статей
+                const articleElements = document.querySelectorAll('.article');
+                articleElements.forEach(article => {
+                    article.addEventListener('click', function() {
+                        const articleId = this.getAttribute('data-id');
+                        const selectedArticle = combinedData.find(a => a.id == articleId);
+                        displayDetails(selectedArticle);
+                        toggleFullScreen();
+                    });
+                });
+
+                // Обработчик события для возврата на главную страницу
+                const backButton = document.querySelector('.back-button');
+                backButton.addEventListener('click', function() {
+                    toggleFullScreen();
+                });
             });
-        });
-
-        // Обработчик события для возврата на главную страницу
-        const backButton = document.querySelector('.back-button');
-        backButton.addEventListener('click', function() {
-            toggleFullScreen();
-        });
-
     })
     .catch((err) => {
         console.log(err);
@@ -79,6 +98,8 @@ document.addEventListener('DOMContentLoaded', function() {  /// это гара�
             <h2>${item.title}</h2>
             <img src="${item.imageUrl}" alt="${item.title}">
             <p>${item.content}</p>
+            <img src="${item.details.imageUrl}" alt="${item.title}">
+            <p>${item.details.content}</p>
         `;
     }
 
