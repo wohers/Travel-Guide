@@ -1,4 +1,3 @@
-
 const menuToggle = document.getElementById('menu-toggle'); 
 const menu = document.getElementById('menu'); 
 
@@ -6,94 +5,114 @@ menuToggle.addEventListener('click', function() {
     menu.classList.toggle('active'); 
 });
 
+let articlesData = [];
+let currentPage = 1;
+const itemsPerPage = 10;
 
-fetch('https://67322e8b2a1b1a4ae10f29a6.mockapi.io/guide/v1/articles')
-    .then((response) => {
-        if (!response.ok) {
-            throw new Error('Error occurred');
-        }
-        return response.json();
-    })
-    .then(articlesData => {
-        return fetch('https://67322e8b2a1b1a4ae10f29a6.mockapi.io/guide/v1/details')
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('Error occurred');
-                }
-                return response.json();
-            })
-            .then(detailsData => {
-                const combinedData = [];
+function loadArticles(page = 1) {
+    fetch(`https://67322e8b2a1b1a4ae10f29a6.mockapi.io/guide/v1/articles?page=${page}&limit=${itemsPerPage}`)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Error occurred');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            articlesData = data;
+            displayArticles(articlesData);
+            updatePagination();
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+}
 
-                articlesData.forEach(article => {
-                    const details = detailsData.find(detail => detail.id === article.id);
+function displayArticles(articles) {
+    const articlesDiv = document.getElementById('articles');
+    articlesDiv.innerHTML = '';
 
-                    if (details) {
-                        combinedData.push({ ...article, details });
-                    } else {
-                        combinedData.push({ ...article, details: {} });
-                    }
-                });
+    articles.forEach(item => {
+        const article = document.createElement('div');
+        article.classList.add('article');
+        article.setAttribute('data-id', item.id);
 
-                console.log(combinedData);
-                const articlesContainer = document.getElementById('articles');
+        const title = document.createElement('h2');
+        title.textContent = item.title;
+        article.appendChild(title);
 
-                combinedData.forEach(item => {
-                    const articleDiv = document.createElement('div');
-                    articleDiv.classList.add('article');
-                    articleDiv.setAttribute('data-id', item.id); 
+        const image = document.createElement('img');
+        image.src = item.imageUrl; 
+        image.alt = item.title;
+        article.appendChild(image);
 
-                    const title = document.createElement('h2');
-                    title.textContent = item.title;
-                    articleDiv.appendChild(title);
+        const content = document.createElement('p');
+        content.textContent = item.content.substring(0, 200) + '   Читать дальше...';
+        article.appendChild(content);
 
-                    const img = document.createElement('img');
-                    img.src = item.imageUrl;
-                    img.alt = item.title;
-                    articleDiv.appendChild(img);
+        articlesDiv.appendChild(article);
 
-                    const content = document.createElement('p');
-                    content.textContent = item.content.substring(0, 200) + '... Читать дальше...';
-                    articleDiv.appendChild(content);
+        article.addEventListener('click', function() {
+            const articleId = this.getAttribute('data-id');
+            const selectedArticle = articlesData.find(a => a.id == articleId);
+            displayDetails(selectedArticle);
+            toggleFullScreen();
+        });
+    });
+}
 
-                    articlesContainer.appendChild(articleDiv);
-                });
+function filterArticlesByCategory(category) {
+    const articlesDiv = document.getElementById('articles');
+    articlesDiv.innerHTML = '';
 
-                const articleElements = document.querySelectorAll('.article');
-                articleElements.forEach(article => {
-                    article.addEventListener('click', function() {
-                        const articleId = this.getAttribute('data-id');
-                        const selectedArticle = combinedData.find(a => a.id == articleId);
-                        displayDetails(selectedArticle);
-                        toggleFullScreen();
-                    });
-                });
+    let filteredArticles = articlesData;
+    if (category !== 'asc') {
+        filteredArticles = articlesData.filter(article => article.category === category);
+    }
 
-                const backButton = document.querySelector('.back-button');
-                backButton.addEventListener('click', function() {
-                    toggleFullScreen();
-                });
-            });
-    })
-    .catch((err) => {
-        console.log(err);
+    displayArticles(filteredArticles);
+}
+
+document.querySelectorAll('.sort__container-link').forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const category = this.getAttribute('data-category') || 'asc';
+        filterArticlesByCategory(category);
+    });
+});
+
+document.querySelector('.sort__container-button').addEventListener('click', function(event) {
+    event.stopPropagation(); 
+    const dropdown = document.querySelector('.sort__container-dropdown');
+    dropdown.classList.toggle('show');
+});
+
+function filterArticlesBySearch(query) {
+    const filteredArticles = articlesData.filter(article => {
+        return article.title.toLowerCase().includes(query.toLowerCase()) || article.content.toLowerCase().includes(query.toLowerCase());
     });
 
-    function displayDetails(item) {
-        const modalContent = document.getElementById('modal-details');
-        modalContent.innerHTML = `
-            <h2>${item.title}</h2>
-            <img src="${item.imageUrl}" alt="${item.title}">
-            <p>${item.content}</p>
-            <img src="${item.details.imageUrl}" alt="${item.title}">
-            <p>${item.details.content}</p>
-        `;
-    }
+    displayArticles(filteredArticles);
+}
 
-    function toggleFullScreen() {
-        const articlesContainer = document.getElementById('articles');
-        const detailsContainer = document.getElementById('details');
+document.getElementById('searchInput').addEventListener('input', function() {
+    const query = this.value.trim();
+    filterArticlesBySearch(query);
+});
 
-        articlesContainer.classList.toggle('hidden');
-        detailsContainer.classList.toggle('hidden');
+function updatePagination() {
+    const paginationDiv = document.getElementById('pagination');
+    paginationDiv.innerHTML = '';
+
+    for (let i = 1; i <= 3; i++) { // Предположим, что у нас 5 страниц
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#';
+        a.textContent = i;
+        a.addEventListener('click', () => loadArticles(i));
+        li.appendChild(a);
+        paginationDiv.appendChild(li);
     }
+}
+
+loadArticles();
