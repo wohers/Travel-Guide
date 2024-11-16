@@ -1,4 +1,4 @@
-/* Общие стили */
+
 * {
     margin: 0;
     padding: 0;
@@ -90,7 +90,7 @@ html {
     }
 }
 
-/* Медиа-запрос для мобильных устройств */
+
 @media (max-width: 768px) {
     .header {
         &__wrap {
@@ -127,7 +127,7 @@ html {
     }
 }
 
-/* Дополнительный медиа-запрос для очень маленьких экранов */
+
 @media (max-width: 480px) {
     .header {
         &__wrap {
@@ -149,7 +149,7 @@ html {
     }
 }
 
-/* Дополнительный медиа-запрос для средних экранов */
+
 @media (max-width: 1024px) {
     .header {
         &__menu {
@@ -298,7 +298,6 @@ html {
     max-width: 800px;
     padding: 20px;
     border-radius: 10px;
-    cursor: pointer;
 
     h2 {
         font-size: 30px;
@@ -309,6 +308,7 @@ html {
     p {
         margin-top: 20px;
         font-size: 26px;
+        cursor: pointer;
     }
 
     img {
@@ -322,7 +322,63 @@ html {
     }
 }
 
+#modal-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background-color: #ffffff; 
+    border-radius: 16px; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    max-width: 1440px;
+    margin: 50px auto; 
+    border: 1px solid #e0e0e0; 
+    
+    h1 {
+        font-size: 28px; 
+        color: #222; 
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: bold; 
+        letter-spacing: 1px; 
+    }
+  
+    img {
+        max-width: 90%; 
+        height: auto;
+        margin: 15px 0;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+    }
+  
+    p, p1 {
+        margin-top: 25px;
+        font-size: 18px; 
+        color: #444; 
+        line-height: 1.8; 
+        margin-bottom: 20px;
+        text-align: justify; 
+    }
+} 
 
+.back-button {
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+  
+    &:hover {
+      background-color: darken(#4CAF50, 10%);
+    }
+  
+    &:active {
+      background-color: darken(#4CAF50, 20%);
+    }
+  }
 
 .pagination {
     display: flex;
@@ -390,8 +446,8 @@ html {
 @media (max-width: 480px) {
     .main {
         &__title-container {
-            flex-direction: column; // Элементы будут располагаться вертикально
-            align-items: stretch; // Растягиваем элементы по ширине контейнера
+            flex-direction: column; 
+            align-items: stretch; 
             font-style: 16px;
             h1{
                 font-size: 16px;
@@ -400,24 +456,24 @@ html {
         }
 
         &__search {
-            margin: 10px 0; // Добавляем отступы сверху и снизу
+            margin: 10px 0; 
 
             &-input {
-                width: 100%; // Занимаем всю доступную ширину
+                width: 100%; 
             }
 
             &-input:focus {
-                width: 100%; // Занимаем всю доступную ширину при фокусе
+                width: 100%; 
             }
         }
 
         .sort {
             &__container {
-                width: 250px; // Занимаем всю доступную ширину
+                width: 250px; 
 
                 &-button {
-                    width: 100%; // Занимаем всю доступную ширину
-                    text-align: center; // Центрируем текст
+                    width: 100%; 
+                    text-align: center; 
                 }
             }
         }

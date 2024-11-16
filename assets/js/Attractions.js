@@ -47,8 +47,15 @@ function displayArticles(articles) {
         article.appendChild(image);
 
         const content = document.createElement('p');
-        content.textContent = item.content.substring(0, 200) + '   Читать дальше...';
+        content.textContent = item.content.substring(0, 300) + '...   Читать дальше';
         article.appendChild(content);
+
+        const image2 = document.createElement('img');
+        image2.src = item.imageUrl2; 
+        image2.alt = item.title;
+
+        const content2 = document.createElement('p');
+        content2.textContent = item.content;
 
         articlesDiv.appendChild(article);
 
@@ -104,7 +111,7 @@ function updatePagination() {
     const paginationDiv = document.getElementById('pagination');
     paginationDiv.innerHTML = '';
 
-    for (let i = 1; i <= 3; i++) { // Предположим, что у нас 5 страниц
+    for (let i = 1; i <= 3; i++) { 
         const li = document.createElement('li');
         const a = document.createElement('a');
         a.href = '#';
@@ -116,3 +123,32 @@ function updatePagination() {
 }
 
 loadArticles();
+
+function displayDetails(article) {
+    const detailsDiv = document.getElementById('modal-details');
+    detailsDiv.innerHTML = `
+        <h1>${article.title}</h1>
+        <img src="${article.imageUrl}" alt="${article.title}"></img>
+        <p1>${article.content}</p1>
+        <img src="${article.imageUrl2}" alt="${article.title}"></img>
+        <p>${article.content2}</p>  
+    `
+
+    const mapUrl = `https://maps.google.com/maps?q=${article.latitude},${article.longitude}&z=15&output=embed`;
+    const map = document.createElement('iframe');
+    map.src = mapUrl;
+    map.width = '100%';
+    map.height = '600';
+    map.style.border = '0';
+    detailsDiv.appendChild(map);
+}
+
+function toggleFullScreen() {
+    const detailsDiv = document.getElementById('details');
+    detailsDiv.classList.toggle('hidden');
+}
+
+document.querySelector('.back-button').addEventListener('click', function() {
+    toggleFullScreen();
+    updateUrl(null);
+});

@@ -1,5 +1,4 @@
 @charset "UTF-8";
-/* Общие стили */
 * {
   margin: 0;
   padding: 0;
@@ -83,7 +82,6 @@ html {
   border-radius: 3px;
 }
 
-/* Медиа-запрос для мобильных устройств */
 @media (max-width: 768px) {
   .header__wrap {
     padding: 10px 20px;
@@ -113,7 +111,6 @@ html {
     font-size: 18px;
   }
 }
-/* Дополнительный медиа-запрос для очень маленьких экранов */
 @media (max-width: 480px) {
   .header__wrap {
     padding: 10px;
@@ -129,7 +126,6 @@ html {
     font-size: 16px;
   }
 }
-/* Дополнительный медиа-запрос для средних экранов */
 @media (max-width: 1024px) {
   .header__menu {
     gap: 50px;
@@ -263,7 +259,6 @@ html {
   max-width: 800px;
   padding: 20px;
   border-radius: 10px;
-  cursor: pointer;
 }
 .article h2 {
   font-size: 30px;
@@ -273,6 +268,7 @@ html {
 .article p {
   margin-top: 20px;
   font-size: 26px;
+  cursor: pointer;
 }
 .article img {
   max-width: 100%;
@@ -282,6 +278,59 @@ html {
   margin-top: 20px;
   display: block;
   border-radius: 30px;
+}
+
+#modal-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  max-width: 1440px;
+  margin: 50px auto;
+  border: 1px solid #e0e0e0;
+}
+#modal-details h1 {
+  font-size: 28px;
+  color: #222;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+#modal-details img {
+  max-width: 90%;
+  height: auto;
+  margin: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+#modal-details p, #modal-details p1 {
+  margin-top: 25px;
+  font-size: 18px;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.back-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.back-button:hover {
+  background-color: #3d8b40;
+}
+.back-button:active {
+  background-color: #2d682f;
 }
 
 .pagination {
