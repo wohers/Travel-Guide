@@ -9,6 +9,9 @@ let articlesData = [];
 let currentPage = 1;
 const itemsPerPage = 10;
 
+const loader = document.getElementById('loader');
+loader.style.display = 'flex'
+
 function loadArticles(page = 1) {
     fetch(`https://67322e8b2a1b1a4ae10f29a6.mockapi.io/guide/v1/articles?page=${page}&limit=${itemsPerPage}`)
         .then((response) => {
@@ -18,6 +21,7 @@ function loadArticles(page = 1) {
             return response.json();
         })
         .then(data => {
+            loader.style.display = 'none'
             console.log(data);
             articlesData = data;
             displayArticles(articlesData);
