@@ -255,19 +255,22 @@ html {
 }
 
 .article {
+  margin-top: 50px;
   margin-bottom: 20px;
   max-width: 800px;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 30px;
+  background-color: #ebf8df;
 }
 .article h2 {
-  font-size: 30px;
+  font-size: 26px;
+  font-weight: 600;
   margin-top: 10px;
   cursor: pointer;
 }
 .article p {
   margin-top: 20px;
-  font-size: 26px;
+  font-size: 20px;
   cursor: pointer;
 }
 .article img {
@@ -280,7 +283,7 @@ html {
   border-radius: 30px;
 }
 
-#modal-details {
+.article-details {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -292,7 +295,7 @@ html {
   margin: 50px auto;
   border: 1px solid #e0e0e0;
 }
-#modal-details h1 {
+.article-details h1 {
   font-size: 28px;
   color: #222;
   margin-bottom: 20px;
@@ -300,14 +303,14 @@ html {
   font-weight: bold;
   letter-spacing: 1px;
 }
-#modal-details img {
+.article-details img {
   max-width: 90%;
   height: auto;
   margin: 15px 0;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
-#modal-details p, #modal-details p1 {
+.article-details p, .article-details p1 {
   margin-top: 25px;
   font-size: 18px;
   color: #444;
@@ -316,6 +319,16 @@ html {
   text-align: justify;
 }
 
+@media (max-width: 480px) {
+  .article-details p, .article-details p1 {
+    margin-top: 25px;
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+}
 .back-button {
   background-color: #4CAF50;
   color: white;
@@ -427,7 +440,7 @@ html {
     width: 100%;
   }
   .main .sort__container {
-    width: 250px;
+    width: 216px;
   }
   .main .sort__container-button {
     width: 100%;

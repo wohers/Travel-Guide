@@ -39,7 +39,6 @@ function displayArticles(articles) {
     articles.forEach(item => {
         const article = document.createElement('div');
         article.classList.add('article');
-        article.setAttribute('data-id', item.id);
 
         const title = document.createElement('h2');
         title.textContent = item.title;
@@ -63,12 +62,10 @@ function displayArticles(articles) {
 
         articlesDiv.appendChild(article);
 
-        article.addEventListener('click', function() {
-            const articleId = this.getAttribute('data-id');
-            const selectedArticle = articlesData.find(a => a.id == articleId);
-            displayDetails(selectedArticle);
-            toggleFullScreen();
-        });
+        title.addEventListener('click', function() {
+            const articleUrl = `shablon.html?id=${item.id}`;
+            window.open(articleUrl);
+        })
     });
 }
 
@@ -80,34 +77,35 @@ function filterArticlesByCategory(category) {
     if (category !== 'asc') {
         filteredArticles = articlesData.filter(article => article.category === category);
     }
-
     displayArticles(filteredArticles);
 }
 
-document.querySelectorAll('.sort__container-link').forEach(link => {
-    link.addEventListener('click', function(event) {
-        event.preventDefault();
+const sortContainerLink = document.querySelectorAll('.sort__container-link')
+sortContainerLink.forEach(link => {
+    link.addEventListener('click', function() {
         const category = this.getAttribute('data-category') || 'asc';
         filterArticlesByCategory(category);
     });
 });
 
-document.querySelector('.sort__container-button').addEventListener('click', function(event) {
-    event.stopPropagation(); 
+const button = document.querySelector('.sort__container-button')
+button.addEventListener('click', function(event) {
     const dropdown = document.querySelector('.sort__container-dropdown');
     dropdown.classList.toggle('show');
-});
+}); 
 
 function filterArticlesBySearch(query) {
     const filteredArticles = articlesData.filter(article => {
-        return article.title.toLowerCase().includes(query.toLowerCase()) || article.content.toLowerCase().includes(query.toLowerCase());
+        const lowerCaseTitle = article.title.toLowerCase();
+        const lowerCaseQuery = query.toLowerCase();
+        return lowerCaseTitle.includes(lowerCaseQuery);
     });
-
     displayArticles(filteredArticles);
 }
 
-document.getElementById('searchInput').addEventListener('input', function() {
-    const query = this.value.trim();
+const search = document.getElementById('searchInput')
+search.addEventListener('input', function() {
+    const query = search.value;
     filterArticlesBySearch(query);
 });
 
@@ -127,32 +125,3 @@ function updatePagination() {
 }
 
 loadArticles();
-
-function displayDetails(article) {
-    const detailsDiv = document.getElementById('modal-details');
-    detailsDiv.innerHTML = `
-        <h1>${article.title}</h1>
-        <img src="${article.imageUrl}" alt="${article.title}"></img>
-        <p1>${article.content}</p1>
-        <img src="${article.imageUrl2}" alt="${article.title}"></img>
-        <p>${article.content2}</p>  
-    `
-
-    const mapUrl = `https://maps.google.com/maps?q=${article.latitude},${article.longitude}&z=15&output=embed`;
-    const map = document.createElement('iframe');
-    map.src = mapUrl;
-    map.width = '100%';
-    map.height = '600';
-    map.style.border = '0';
-    detailsDiv.appendChild(map);
-}
-
-function toggleFullScreen() {
-    const detailsDiv = document.getElementById('details');
-    detailsDiv.classList.toggle('hidden');
-}
-
-document.querySelector('.back-button').addEventListener('click', function() {
-    toggleFullScreen();
-    updateUrl(null);
-});
