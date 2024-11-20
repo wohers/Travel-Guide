@@ -1,6 +1,12 @@
+function getParam(name) {
+    const UrlParam = new URLSearchParams(window.location.search);
+    return UrlParam.get(name);
+}
+
 const articleId = getParam('id');
 const loader = document.getElementById('loader');
 loader.style.display = 'flex'
+
 fetch(`https://67322e8b2a1b1a4ae10f29a6.mockapi.io/guide/v1/articles/${articleId}`)
     .then((response) => {
         if (!response.ok) {
@@ -15,11 +21,6 @@ fetch(`https://67322e8b2a1b1a4ae10f29a6.mockapi.io/guide/v1/articles/${articleId
     .catch((err) => {
         console.log(err);
     });
-
-function getParam(name) {
-    const UrlParam = new URLSearchParams(window.location.search);
-    return UrlParam.get(name);
-}
 
 function displayArticleDetails(article) {
     const articleDetails = document.getElementById('articleDetails');

@@ -20,7 +20,8 @@ window.addEventListener('click', (event) => {
 });
 
 // обработка отправки формы
-document.getElementById('subscribeForm').addEventListener('submit', (event) => {
+const subscribeForm = document.getElementById('subscribeForm')
+subscribeForm.addEventListener('submit', (event) => {
     event.preventDefault(); 
 
     const email = document.getElementById('emailInput').value;

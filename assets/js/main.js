@@ -41,7 +41,7 @@ function showNextSlide() {
 
 // функция для отображение слайдера
 function updateSlider() {
-    for (var i = 0; i < slides.length; i++) { 
+    for (let i = 0; i < slides.length; i++) { 
         if (i === slideIndex) { 
             slides[i].style.display = 'block'; 
         } else { 
