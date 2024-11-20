@@ -1,22 +1,21 @@
-// получаем элементы модального окна
-const modal = document.getElementById('modal'); //находит элемент modal и сохраняет его в переменную modal.
-const openModalBtn = document.getElementById('openModalBtn'); //находит элемент openModalBtn и сохраняет его в переменную openModalBtn.
-const closeModalBtn = document.querySelector('.modal__close'); //находит элемент modal__close и сохраняет его в переменную closeModalBtn.
+const modal = document.getElementById('modal'); 
 
 // открываем модальное окно
-openModalBtn.addEventListener('click', () => { // при нажатии на openModalBtn 
-    modal.style.display = 'block'; // display: none --> display: block
+const openModalBtn = document.getElementById('openModalBtn'); 
+openModalBtn.addEventListener('click', () => { 
+    modal.style.display = 'block'; 
 });
 
 // закрываем модальное окно
-closeModalBtn.addEventListener('click', () => {  // при нажатии на closeModalBtn 
+const closeModalBtn = document.querySelector('.modal__close');
+closeModalBtn.addEventListener('click', () => {  
     modal.style.display = 'none';
 });
 
 // закрываем модальное окно при клике вне его
-window.addEventListener('click', (event) => { // при нажатии на window 
+window.addEventListener('click', (event) => { 
     if (event.target === modal) {
-        modal.style.display = 'none';  // display: block --> display: none
+        modal.style.display = 'none';  
     }
 });
 
@@ -27,8 +26,9 @@ document.getElementById('subscribeForm').addEventListener('submit', (event) => {
     const email = document.getElementById('emailInput').value;
     if (email) {
         alert(`Спасибо за обратную звязь!`);
-        modal.style.display = 'none'; // закрываем модальное окно после отправки
-    } else {
+        modal.style.display = 'none';
+    }
+    else {
         alert('Пожалуйста, введите ваш email.');
     }
 });
