@@ -32,6 +32,25 @@ function loadArticles(page = 1) {
         });
 }
 
+
+let AllarticlesData = []
+fetch(`https://67322e8b2a1b1a4ae10f29a6.mockapi.io/guide/v1/articles`)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Error occurred');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            AllarticlesData = data;
+            displayArticles(AllarticlesData);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+
+
 function displayArticles(articles) {
     const articlesDiv = document.getElementById('articles');
     articlesDiv.innerHTML = '';
@@ -72,10 +91,13 @@ function displayArticles(articles) {
 function filterArticlesByCategory(category) {
     const articlesDiv = document.getElementById('articles');
     articlesDiv.innerHTML = '';
+    
 
-    let filteredArticles = articlesData;
-    if (category !== 'asc') {
-        filteredArticles = articlesData.filter(article => article.category === category);
+    if (category === 'asc') {
+        filteredArticles = articlesData
+    }
+    else if (category !== 'asc') {
+        filteredArticles = AllarticlesData.filter(article => article.category === category);
     }
     displayArticles(filteredArticles);
 }
@@ -95,7 +117,7 @@ button.addEventListener('click', function(event) {
 }); 
 
 function filterArticlesBySearch(query) {
-    const filteredArticles = articlesData.filter(article => {
+    let filteredArticles = AllarticlesData.filter(article => {
         const lowerCaseTitle = article.title.toLowerCase();
         const lowerCaseQuery = query.toLowerCase();
         return lowerCaseTitle.includes(lowerCaseQuery);

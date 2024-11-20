@@ -30,6 +30,7 @@ function displayArticleDetails(article) {
         <img src="${article.imageUrl2}" alt="${article.title}">
         <p>${article.content2}</p>
     `;
+    document.title = article.title
 
     const mapUrl = `https://maps.google.com/maps?q=${article.latitude},${article.longitude}&z=15&output=embed`;
     const map = document.createElement('iframe');
