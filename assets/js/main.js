@@ -38,3 +38,16 @@ function showNextSlide() {
     }
     updateSlider();
 }
+
+// функция для отображения слайдера
+function updateSlider() {
+    for (let i = 0; i < slides.length; i++) { 
+        if (i === slideIndex) { 
+            slides[i].style.display = 'block'; 
+        } else { 
+            slides[i].style.display = 'none'; 
+        }
+    }
+}
+
+updateSlider();
