@@ -19,15 +19,15 @@ window.addEventListener('click', (event) => {
     }
 });
 
+const savedEmail = localStorage.getItem('userEmail');
 // обработка отправки формы
 const subscribeForm = document.getElementById('subscribeForm')
-subscribeForm.addEventListener('submit', (event) => {
-    event.preventDefault(); 
-
+subscribeForm.addEventListener('submit', () => {
     const email = document.getElementById('emailInput').value;
     if (email) {
         alert(`Спасибо за обратную звязь!`);
         modal.style.display = 'none';
+        localStorage.setItem('userEmail', email)
     }
     else {
         alert('Пожалуйста, введите ваш email.');

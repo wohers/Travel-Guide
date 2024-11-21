@@ -15,7 +15,7 @@ nextButton.addEventListener('click', function() {
 })
 
 let slider = document.querySelector('.slider__sliders'); 
-let slides = Array.from(slider.querySelectorAll('img')); 
+let slides = slider.querySelectorAll('img'); 
 let slideCount = slides.length; 
 let slideIndex = 0; 
 

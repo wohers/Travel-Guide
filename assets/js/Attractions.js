@@ -43,7 +43,6 @@ fetch(`https://67322e8b2a1b1a4ae10f29a6.mockapi.io/guide/v1/articles`)
         .then(data => {
             console.log(data);
             AllarticlesData = data;
-            displayArticles(AllarticlesData);
         })
         .catch((err) => {
             console.log(err);
@@ -104,13 +103,13 @@ function filterArticlesByCategory(category) {
 const sortContainerLink = document.querySelectorAll('.sort__container-link')
 sortContainerLink.forEach(link => {
     link.addEventListener('click', function() {
-        const category = this.getAttribute('data-category') || 'asc';
+        const category = link.getAttribute('data-category') || 'asc';
         filterArticlesByCategory(category);
     });
 });
 
 const button = document.querySelector('.sort__container-button')
-button.addEventListener('click', function(event) {
+button.addEventListener('click', function() {
     const dropdown = document.querySelector('.sort__container-dropdown');
     dropdown.classList.toggle('show');
 }); 
