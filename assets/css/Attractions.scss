@@ -9,21 +9,23 @@ html {
     scroll-behavior: smooth;
 }
 
-.header {
-    background-color: #ebf8df;
+// header //
 
+.header {
     &__wrap {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 20px 0;
         max-width: 1200px;
         margin: 0 auto;
-        padding: 20px;
+        padding: 0 20px;
     }
 
     &__box {
         display: flex;
         align-items: center;
+        width: 100%;
         justify-content: center;
     }
 
@@ -32,7 +34,7 @@ html {
         gap: 100px;
     }
 
-    &__item {
+    &__item{
         list-style: none;
     }
 
@@ -47,7 +49,7 @@ html {
         text-decoration: none;
 
         &:hover {
-            color: black;
+            color: rgb(0, 0, 0);
         }
     }
 
@@ -66,10 +68,14 @@ html {
     }
 }
 
+
+
+// Адаптив для header//
+
 @media (max-width: 768px) {
     .header {
         &__wrap {
-            padding: 10px;
+            padding: 10px 20px;
         }
 
         &__menu {
@@ -88,10 +94,12 @@ html {
 
         &__menu-toggle {
             display: flex;
+            width: 100%; 
         }
 
         &__menu.active {
             display: flex;
+            z-index: 1;
         }
 
         &__link {
@@ -99,6 +107,7 @@ html {
         }
     }
 }
+
 
 @media (max-width: 480px) {
     .header {
@@ -121,6 +130,21 @@ html {
     }
 }
 
+
+@media (max-width: 1024px) {
+    .header {
+        &__menu {
+            gap: 50px;
+        }
+
+        &__link {
+            font-size: 20px;
+        }
+        &__nav {
+            font-size: 10px;
+        }
+    }
+}
 .main {
     &__container {
         max-width: 1280px;
