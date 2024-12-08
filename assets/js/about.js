@@ -1,35 +1,44 @@
-const modal = document.getElementById('modal'); 
+class Modal {
+    constructor(modalSelector, openBtnSelector, closeBtnSelector, formSelector) {
+        this.modal = document.querySelector(modalSelector);
+        this.openBtn = document.querySelector(openBtnSelector);
+        this.closeBtn = document.querySelector(closeBtnSelector);
+        this.form = document.querySelector(formSelector);
 
-// открываем модальное окно
-const openModalBtn = document.getElementById('openModalBtn'); 
-openModalBtn.addEventListener('click', () => { 
-    modal.style.display = 'block'; 
-});
+        this.savedEmail = localStorage.getItem("userEmail");
 
-// закрываем модальное окно
-const closeModalBtn = document.querySelector('.modal__close');
-closeModalBtn.addEventListener('click', () => {  
-    modal.style.display = 'none';
-});
-
-// закрываем модальное окно при клике вне его
-window.addEventListener('click', (event) => { 
-    if (event.target === modal) {
-        modal.style.display = 'none';  
+        this.openBtn.addEventListener("click", () => this.openModal());
+        this.closeBtn.addEventListener("click", () => this.closeModal());
+        window.addEventListener("click", (event) => this.handleOutsideClick(event));
+        this.form.addEventListener("submit", (event) => this.handleFormSubmit(event));
     }
-});
 
-const savedEmail = localStorage.getItem('userEmail');
-// обработка отправки формы
-const subscribeForm = document.getElementById('subscribeForm')
-subscribeForm.addEventListener('submit', () => {
-    const email = document.getElementById('emailInput').value;
-    if (email) {
-        alert(`Спасибо за обратную звязь!`);
-        modal.style.display = 'none';
-        localStorage.setItem('userEmail', email)
+    openModal() {
+        this.modal.style.display = "block";
     }
-    else {
-        alert('Пожалуйста, введите ваш email.');
+
+    closeModal() {
+        this.modal.style.display = "none";
     }
-});
+
+    handleOutsideClick(event) {
+        if (event.target === this.modal) {
+            this.closeModal();
+        }
+    }
+
+    handleFormSubmit(event) {
+        event.preventDefault();
+        const email = document.getElementById("emailInput").value;
+        if (email) {
+            alert(`Спасибо за обратную связь!`);
+            this.closeModal();
+            localStorage.setItem("userEmail", email);
+        } else {
+            alert("Пожалуйста, введите ваш email.");
+        }
+    }
+}
+
+// Инициализация модального окна
+const modal = new Modal("#modal", "#openModalBtn", ".modal__close", "#subscribeForm");

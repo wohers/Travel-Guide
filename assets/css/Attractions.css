@@ -457,4 +457,149 @@ html {
     flex-direction: column;
     align-items: center;
   }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.3s ease-in-out;
+}
+.modal .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease-in-out;
+}
+.modal .modal-content .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.modal .modal-content .close:hover, .modal .modal-content .close:focus {
+  color: black;
+  text-decoration: none;
+}
+.modal .modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+.modal .modal-content form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.modal .modal-content form input,
+.modal .modal-content form textarea,
+.modal .modal-content form select {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+.modal .modal-content form button[type=submit] {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.modal .modal-content form button[type=submit]:hover {
+  background-color: #45a049;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+#reviews-container {
+  margin-top: 20px;
+}
+#reviews-container .review {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+#reviews-container .review strong {
+  font-size: 18px;
+  color: #333;
+}
+#reviews-container .review p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #555;
+}
+#reviews-container .review button {
+  background-color: #ff5c5c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+#reviews-container .review button:hover {
+  background-color: #e64a4a;
+}
+
+#average-rating {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+
+#leaveReviewButton {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+#leaveReviewButton:hover {
+  background-color: #45a049;
+}
+
+#modalReview {
+  max-width: 542px;
+  max-height: 200px;
 }/*# sourceMappingURL=Attractions.css.map */

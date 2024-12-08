@@ -11,7 +11,38 @@
     <div class="loader" id="loader">
         <div class="spinner"></div>
     </div>
-    <div class="article-details" id="articleDetails"></div>
-<script src="./assets/js/shablon.js"></script>
+    <div class="article-details" id="articleDetails">
+        <!-- Кнопка "Оставить отзыв" будет вставлена здесь -->
+    </div>
+    <div id="average-rating"></div> <!-- Добавлен элемент для отображения средней оценки -->
+    <div id="reviews-container"></div> <!-- Добавлен элемент для отображения отзывов -->
+    <!-- Модальное окно -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Оставить отзыв</h2>
+            <form id="reviewForm">
+                <label for="modalName">Имя:</label>
+                <input type="text" id="modalName" name="name" required />
+                <label for="modalReview">Отзыв:</label>
+                <textarea
+                    id="modalReview"
+                    name="review"
+                    rows="5"
+                    required
+                ></textarea>
+                <label for="modalRating">Оценка:</label>
+                <select id="modalRating" name="rating" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+    <script src="./assets/js/shablon.js"></script>
 </body>
 </html>

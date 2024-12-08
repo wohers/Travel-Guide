@@ -1,53 +1,57 @@
-const menuToggle = document.getElementById('menu-toggle');
-menuToggle.addEventListener('click', function() {
-    const menu = document.getElementById('menu');  
-    menu.classList.toggle('active'); 
-});
+class Slider {
+    constructor(sliderSelector, prevButtonSelector, nextButtonSelector) {
+        this.slider = document.querySelector(sliderSelector);
+        this.slides = this.slider.querySelectorAll('img');
+        this.slideCount = this.slides.length;
+        this.slideIndex = 0;
 
-const prevButton = document.querySelector('.slider__prev-button'); 
-prevButton.addEventListener('click', function() {
-    showPreviousSlide(); 
-});
+        this.prevButton = document.querySelector(prevButtonSelector);
+        this.nextButton = document.querySelector(nextButtonSelector);
 
-const nextButton = document.querySelector('.slider__next-button'); 
-nextButton.addEventListener('click', function() {
-    showNextSlide(); 
-})
+        this.prevButton.addEventListener('click', () => this.showPreviousSlide());
+        this.nextButton.addEventListener('click', () => this.showNextSlide());
 
-let slider = document.querySelector('.slider__sliders'); 
-let slides = slider.querySelectorAll('img'); 
-let slideCount = slides.length; 
-let slideIndex = 0; 
-
-// функция для показа предыдущего слайда
-function showPreviousSlide() {
-    if (slideIndex === 0) { 
-        slideIndex = slideCount - 1; 
-    } else {
-        slideIndex = slideIndex - 1; 
+        this.updateSlider();
     }
-    updateSlider(); 
-}
 
-// функция для показа следующего слайда
-function showNextSlide() {
-    if (slideIndex === slideCount - 1) { 
-        slideIndex = 0; 
-    } else {
-        slideIndex = slideIndex + 1; 
+    // Метод для показа предыдущего слайда
+    showPreviousSlide() {
+        if (this.slideIndex === 0) {
+            this.slideIndex = this.slideCount - 1;
+        } else {
+            this.slideIndex = this.slideIndex - 1;
+        }
+        this.updateSlider();
     }
-    updateSlider();
-}
 
-// функция для отображения слайдера
-function updateSlider() {
-    for (let i = 0; i < slides.length; i++) { 
-        if (i === slideIndex) { 
-            slides[i].style.display = 'block'; 
-        } else { 
-            slides[i].style.display = 'none'; 
+    // Метод для показа следующего слайда
+    showNextSlide() {
+        if (this.slideIndex === this.slideCount - 1) {
+            this.slideIndex = 0;
+        } else {
+            this.slideIndex = this.slideIndex + 1;
+        }
+        this.updateSlider();
+    }
+
+    // Метод для отображения слайдера
+    updateSlider() {
+        for (let i = 0; i < this.slides.length; i++) {
+            if (i === this.slideIndex) {
+                this.slides[i].style.display = 'block';
+            } else {
+                this.slides[i].style.display = 'none';
+            }
         }
     }
 }
 
-updateSlider();
+// Инициализация слайдера
+const slider = new Slider('.slider__sliders', '.slider__prev-button', '.slider__next-button');
+
+// Обработчик для переключения меню
+const menuToggle = document.getElementById('menu-toggle');
+menuToggle.addEventListener('click', function() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('active');
+});
