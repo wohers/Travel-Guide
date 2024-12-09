@@ -40,5 +40,4 @@ class Modal {
     }
 }
 
-// Инициализация модального окна
 const modal = new Modal("#modal", "#openModalBtn", ".modal__close", "#subscribeForm");

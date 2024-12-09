@@ -26,9 +26,9 @@ function displayArticleDetails(article) {
     const articleDetails = document.getElementById('articleDetails');
     articleDetails.innerHTML = `
         <h1>${article.title}</h1>
-        <img src="${article.imageUrl}" alt="${article.title}">
+        <img src="${article.imageUrl}" alt="${article.title}" class='imgModal'>
         <p>${article.content}</p>
-        <img src="${article.imageUrl2}" alt="${article.title}">
+        <img src="${article.imageUrl2}" alt="${article.title}" class='imgModal'>
         <p>${article.content2}</p>
     `;
     document.title = article.title;
@@ -53,6 +53,41 @@ function displayArticleDetails(article) {
 
     // Display average rating for the article
     displayAverageRating(articleId, document.getElementById('average-rating'));
+
+    // Добавляем обработчик событий для открытия модального окна
+    const images = document.querySelectorAll('.imgModal');
+    images.forEach(image => {
+        image.addEventListener('click', () => openModalImg(image.src, images));
+    });
+}
+
+
+function openModalImg(imageUrl, images) {
+    const modalImg = document.getElementById('modalForimages');
+    const modalImage = document.getElementById('modalImage');
+    modalImage.src = imageUrl;
+    modalImg.style.display = 'block';
+
+    // Закрытие модального окна при клике на крестик
+    const closeBtnModal = document.getElementsByClassName('modalimg__closeImg')[0];
+    closeBtnModal.onclick = function() {
+        modalImg.style.display = 'none';
+    }
+
+    // Добавляем обработчик событий для переключения фотографий
+    const prevButton = document.querySelector('.modal-navigation.prev');
+    const nextButton = document.querySelector('.modal-navigation.next');
+    let currentIndex = Array.from(images).findIndex(img => img.src === imageUrl);
+
+    prevButton.onclick = function() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        modalImage.src = images[currentIndex].src;
+    }
+
+    nextButton.onclick = function() {
+        currentIndex = (currentIndex + 1) % images.length;
+        modalImage.src = images[currentIndex].src;
+    }
 }
 
 // Модальное окно
@@ -138,7 +173,7 @@ function displayReviews(articleId, container) {
                 noReviews.textContent = "No reviews yet.";
                 container.appendChild(noReviews);
             } else {
-                reviews.forEach((review, index) => {
+                reviews.forEach((review) => {
                     const reviewElement = document.createElement("div");
                     reviewElement.classList.add("review");
                     reviewElement.innerHTML = `<strong>${review.name}</strong><br>${review.reviewText}<br>Оценка: ${review.rating}`;

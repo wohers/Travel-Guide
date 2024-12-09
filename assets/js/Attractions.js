@@ -86,11 +86,11 @@ function displayArticles(articles) {
         const image2 = document.createElement("img");
         image2.src = item.imageUrl2;
         image2.alt = item.title;
-        article.appendChild(image2);
+        // article.appendChild(image2);
 
         const content2 = document.createElement("p");
         content2.textContent = item.content;
-        article.appendChild(content2);
+        // article.appendChild(content2);
 
         // Вычисление и отображение средней оценки
         calculateAverageRating(item.id).then(averageRating => {
