@@ -52,8 +52,4 @@ const slider = new Slider(
     ".slider__next-button"
 );
 
-const menuToggle = document.getElementById("menu-toggle");
-menuToggle.addEventListener("click", function () {
-    const menu = document.getElementById("menu");
-    menu.classList.toggle("active");
-});
+

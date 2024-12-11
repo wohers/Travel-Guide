@@ -51,6 +51,17 @@
                       <input type="text" id="searchInput" class="main__search-input" placeholder="Искать здесь...">
                     </form>
                 </div>
+                <div class="filter">
+                    <div class="filter__container">
+                        <button class="filter__container-button">Фильтер</button>
+                        <div class="filter__container-dropdown">
+                            <ul class="filter__container-ul">
+                                <li><a href="#" class="filter__container-link" data-category="desc">Лайки ^</a></li>
+                                <li><a href="#" class="filter__container-link" data-category="asc">Лайки</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div class="sort">
                     <div class="sort__container">
                         <button class="sort__container-button">Сортировать</button>
@@ -115,7 +126,7 @@
             </div>
         </div>
     </footer>
-
-<script src="./assets/js/Attractions.js"></script>
-</body>
+    <script src="./assets/js/utils/burger.js"></script>
+    <script type="module" src="./assets/js/attractions/Attractions.js"></script>
+</body> 
 </html>

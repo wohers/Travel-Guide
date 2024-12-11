@@ -201,6 +201,59 @@ html {
     }
 }
 
+.filter {
+    text-align: center;
+
+    &__container {
+        position: relative;
+        display: inline-block;
+        margin: 0 10px;
+
+        &-button {
+            background: linear-gradient(135deg, #ebf8df, #a8e063);
+            color: #324b4e;
+            padding: 12px 20px;
+            font-size: 14px;
+            border-radius: 42px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &-dropdown {
+            display: none;
+            position: absolute;
+            background: linear-gradient(135deg, #ebf8df, #a8e063);
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 10px;
+
+            &.show {
+                display: block;
+            }
+        }
+
+        &-ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        &-link {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: #324b4e;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+}
+
 .sort {
     text-align: center;
 
@@ -444,6 +497,17 @@ html {
 
                 &:focus {
                     width: 100%;
+                }
+            }
+        }
+
+        .filter {
+            &__container {
+                width: 216px;
+
+                &-button {
+                    width: 100%;
+                    text-align: center;
                 }
             }
         }
