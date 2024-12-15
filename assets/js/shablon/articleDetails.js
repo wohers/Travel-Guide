@@ -51,7 +51,9 @@ export class ArticleDetails {
         const leaveReviewButton = document.createElement("button");
         leaveReviewButton.id = "leaveReviewButton";
         leaveReviewButton.textContent = "Оставить отзыв";
-        leaveReviewButton.addEventListener("click", () => this.openReviewModal());
+        leaveReviewButton.addEventListener("click", () =>
+            this.openReviewModal()
+        );
         this.articleDetailsContainer.appendChild(leaveReviewButton);
 
         this.initImageModal(article);
@@ -60,7 +62,9 @@ export class ArticleDetails {
     initImageModal(article) {
         const images = document.querySelectorAll(".imgModal");
         images.forEach((image) => {
-            image.addEventListener("click", () => this.openImageModal(image.src, images));
+            image.addEventListener("click", () =>
+                this.openImageModal(image.src, images)
+            );
         });
     }
 

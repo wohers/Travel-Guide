@@ -1,4 +1,3 @@
-// reviewManager.js
 export class ReviewManager {
     constructor(articleId, apiUrl) {
         this.articleId = articleId;
@@ -87,11 +86,14 @@ export class ReviewManager {
                     reviews.forEach((review) => {
                         const reviewElement = document.createElement("div");
                         reviewElement.classList.add("review");
+                        // reviewElement.dataset.reviewId = review.id;
                         reviewElement.innerHTML = `<strong>${review.name}</strong><br>${review.reviewText}<br>Оценка: ${review.rating}`;
 
                         const deleteButton = document.createElement("button");
                         deleteButton.textContent = "Удалить отзыв";
-                        deleteButton.addEventListener("click", () => this.deleteReview(review.id));
+                        deleteButton.addEventListener("click", () =>
+                            this.deleteReview(review.id, reviewElement)
+                        );
                         reviewElement.appendChild(deleteButton);
 
                         this.reviewsContainer.appendChild(reviewElement);
@@ -103,7 +105,7 @@ export class ReviewManager {
             });
     }
 
-    deleteReview(reviewId) {
+    deleteReview(reviewId, reviewElement) {
         fetch(`${this.apiUrl}/${this.articleId}/reviews/${reviewId}`, {
             method: "DELETE",
         })
@@ -114,7 +116,7 @@ export class ReviewManager {
                 return response.json();
             })
             .then(() => {
-                this.displayReviews();
+                reviewElement.remove();
                 this.displayAverageRating();
             })
             .catch((error) => {
@@ -132,11 +134,17 @@ export class ReviewManager {
             })
             .then((reviews) => {
                 if (reviews.length === 0) {
-                    this.averageRatingContainer.innerHTML = "Средняя оценка: Нет оценок";
+                    this.averageRatingContainer.innerHTML =
+                        "Средняя оценка: Нет оценок";
                 } else {
-                    const totalRating = reviews.reduce((sum, review) => sum + parseInt(review.rating), 0);
+                    const totalRating = reviews.reduce(
+                        (sum, review) => sum + parseInt(review.rating),
+                        0
+                    );
                     const averageRating = totalRating / reviews.length;
-                    this.averageRatingContainer.innerHTML = `Средняя оценка: ${averageRating.toFixed(1)}`;
+                    this.averageRatingContainer.innerHTML = `Средняя оценка: ${averageRating.toFixed(
+                        1
+                    )}`;
                 }
             })
             .catch((error) => {

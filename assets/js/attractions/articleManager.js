@@ -58,9 +58,9 @@ export class ArticleManager {
                 item.content.substring(0, 300) + "...   Читать дальше";
             article.appendChild(content);
 
-            const likes = document.createElement('p');
-            likes.textContent = 'Кол-во Лайков: ' +  item.likes;
-            article.appendChild(likes)
+            const likes = document.createElement("p");
+            likes.textContent = "Кол-во Лайков: " + item.likes;
+            article.appendChild(likes);
 
             // Вывод средней оценки
             this.calculateAverageRating(item.id).then((averageRating) => {
@@ -68,7 +68,6 @@ export class ArticleManager {
                 averageRatingElement.textContent = `Средняя оценка: ${averageRating}`;
                 article.appendChild(averageRatingElement);
             });
-
 
             this.articlesDiv.appendChild(article);
 
