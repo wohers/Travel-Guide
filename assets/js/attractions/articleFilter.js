@@ -29,7 +29,7 @@ export class ArticleFilter {
         url.searchParams.append("page", page);
         url.searchParams.append("limit", limit);
 
-        console.log(url.toString());
+        console.log(url.href);
 
         fetch(url, {
             method: "GET",

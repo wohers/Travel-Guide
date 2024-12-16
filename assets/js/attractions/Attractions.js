@@ -9,6 +9,8 @@ const articleManager = new ArticleManager(
 
 const articleFilter = new ArticleFilter(articleManager);
 
+// Для сортировки
+
 const filterButton = document.querySelector(".filter__container-button");
 const Filterdropdown = document.querySelector(".filter__container-dropdown");
 
@@ -25,14 +27,19 @@ filterContainerLinks.forEach((link) => {
         const order = link.getAttribute("data-order");
         console.log(order);
 
-        const category =
-            document
-                .querySelector(".sort__container-link.active")
-                ?.getAttribute("data-category") || null;
+        const activeLink = document.querySelector(".sort__container-link.active");
+
+        let category = null; 
+
+        if (activeLink) {
+            category = activeLink.getAttribute("data-category");
+        }
 
         articleFilter.SortArticlesByLikes(order, category);
     });
 });
+
+// Для фильтрации
 
 const sortButton = document.querySelector(".sort__container-button");
 const sortDropdown = document.querySelector(".sort__container-dropdown");
@@ -52,10 +59,15 @@ sortContainerLinks.forEach((link) => {
 
         link.classList.add("active");
 
-        const order =
-            document
-                .querySelector(".filter__container-link.active")
-                ?.getAttribute("data-order") || null;
+        const activeFilterLink = document.querySelector(".filter__container-link.active");
+
+        let order = null;
+
+        if (activeFilterLink) {
+            order = activeFilterLink.getAttribute("data-order");
+        } else {
+            order = null;
+        }
 
         articleFilter.filterArticlesByCategory(category, order);
     });
