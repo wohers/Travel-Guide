@@ -1,4 +1,3 @@
-// articleManager.js
 export class ArticleManager {
     constructor(baseUrl, articlesDivId, loaderId, itemsPerPage = 10) {
         this.baseUrl = baseUrl;
@@ -62,7 +61,6 @@ export class ArticleManager {
             likes.textContent = "Кол-во Лайков: " + item.likes;
             article.appendChild(likes);
 
-            // Вывод средней оценки
             this.calculateAverageRating(item.id).then((averageRating) => {
                 const averageRatingElement = document.createElement("p");
                 averageRatingElement.textContent = `Средняя оценка: ${averageRating}`;
@@ -81,17 +79,20 @@ export class ArticleManager {
     calculateAverageRating(articleId) {
         return fetch(`${this.baseUrl}/${articleId}/reviews`)
             .then((response) => {
-                if (!response.ok) {
+                if (response.ok) {
+                    return response.json();
+                } else {
                     throw new Error("Error occurred");
                 }
-                return response.json();
             })
             .then((reviews) => {
-                if (reviews.length === 0) return "Нет оценок";
-                const totalRating = reviews.reduce(
-                    (sum, review) => sum + parseInt(review.rating),
-                    0
-                );
+                if (reviews.length === 0) {
+                    return "Нет оценок";
+                }
+                let totalRating = 0;
+                for (let i = 0; i < reviews.length; i++) {
+                    totalRating += parseInt(reviews[i].rating);
+                }
                 const averageRating = totalRating / reviews.length;
                 return averageRating.toFixed(1);
             })
@@ -105,7 +106,7 @@ export class ArticleManager {
         const paginationDiv = document.getElementById("pagination");
         paginationDiv.innerHTML = "";
 
-        for (let i = 1; i <= 3; i++) {
+        for (let i = 1; i <= 2; i++) {
             const li = document.createElement("li");
             const a = document.createElement("a");
             a.href = "#";

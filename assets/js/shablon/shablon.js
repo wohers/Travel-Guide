@@ -1,4 +1,3 @@
-// main.js
 import { ArticleDetails } from "./articleDetails.js";
 import { ReviewManager } from "./reviewManager.js";
 

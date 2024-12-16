@@ -86,7 +86,6 @@ export class ReviewManager {
                     reviews.forEach((review) => {
                         const reviewElement = document.createElement("div");
                         reviewElement.classList.add("review");
-                        // reviewElement.dataset.reviewId = review.id;
                         reviewElement.innerHTML = `<strong>${review.name}</strong><br>${review.reviewText}<br>Оценка: ${review.rating}`;
 
                         const deleteButton = document.createElement("button");

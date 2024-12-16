@@ -1,4 +1,3 @@
-// articleDetails.js
 export class ArticleDetails {
     constructor(articleId, apiUrl) {
         this.articleId = articleId;
@@ -75,24 +74,24 @@ export class ArticleDetails {
         modalImg.style.display = "block";
 
         const closeBtnModal = document.getElementsByClassName("modalimg__closeImg")[0];
-        closeBtnModal.onclick = () => {
+        closeBtnModal.addEventListener('click', function() {
             modalImg.style.display = "none";
-        };
+        })
 
         const prevButton = document.querySelector(".modal-navigation.prev");
         const nextButton = document.querySelector(".modal-navigation.next");
         let currentIndex = Array.from(images).findIndex((img) => img.src === imageUrl);
 
-        prevButton.onclick = () => {
+        prevButton.addEventListener('click', function() {
             currentIndex = (currentIndex - 1 + images.length) % images.length;
             modalImage.src = images[currentIndex].src;
-        };
+        })
 
-        nextButton.onclick = () => {
+        nextButton.addEventListener('click', function() {
             currentIndex = (currentIndex + 1) % images.length;
             modalImage.src = images[currentIndex].src;
-        };
-    }
+        })
+    }       
 
     openReviewModal() {
         const modal = document.getElementById("reviewModal");
