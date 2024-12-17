@@ -61,11 +61,11 @@ export class ArticleManager {
             likes.textContent = "Кол-во Лайков: " + item.likes;
             article.appendChild(likes);
 
-            this.calculateAverageRating(item.id).then((averageRating) => {
-                const averageRatingElement = document.createElement("p");
-                averageRatingElement.textContent = `Средняя оценка: ${averageRating}`;
-                article.appendChild(averageRatingElement);
-            });
+            // this.calculateAverageRating(item.id).then((averageRating) => {
+            //     const averageRatingElement = document.createElement("p");
+            //     averageRatingElement.textContent = `Средняя оценка: ${averageRating}`;
+            //     article.appendChild(averageRatingElement);
+            // });
 
             this.articlesDiv.appendChild(article);
 
@@ -76,31 +76,31 @@ export class ArticleManager {
         });
     }
 
-    calculateAverageRating(articleId) {
-        return fetch(`${this.baseUrl}/${articleId}/reviews`)
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error("Error occurred");
-                }
-            })
-            .then((reviews) => {
-                if (reviews.length === 0) {
-                    return "Нет оценок";
-                }
-                let totalRating = 0;
-                for (let i = 0; i < reviews.length; i++) {
-                    totalRating += parseInt(reviews[i].rating);
-                }
-                const averageRating = totalRating / reviews.length;
-                return averageRating.toFixed(1);
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-                return "Нет оценок";
-            });
-    }
+    // calculateAverageRating(articleId) {
+    //     return fetch(`${this.baseUrl}/${articleId}/reviews`)
+    //         .then((response) => {
+    //             if (response.ok) {
+    //                 return response.json();
+    //             } else {
+    //                 throw new Error("Error occurred");
+    //             }
+    //         })
+    //         .then((reviews) => {
+    //             if (reviews.length === 0) {
+    //                 return "Нет оценок";
+    //             }
+    //             let totalRating = 0;
+    //             for (let i = 0; i < reviews.length; i++) {
+    //                 totalRating += parseInt(reviews[i].rating);
+    //             }
+    //             const averageRating = totalRating / reviews.length;
+    //             return averageRating.toFixed(1);
+    //         })
+    //         .catch((error) => {
+    //             console.error("Error:", error);
+    //             return "Нет оценок";
+    //         });
+    // }
 
     updatePagination() {
         const paginationDiv = document.getElementById("pagination");

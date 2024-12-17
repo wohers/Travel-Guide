@@ -3,7 +3,6 @@ export class ReviewManager {
         this.articleId = articleId;
         this.apiUrl = apiUrl;
         this.reviewsContainer = document.getElementById("reviews-container");
-        this.averageRatingContainer = document.getElementById("average-rating");
         this.reviewForm = document.getElementById("reviewForm");
         this.modal = document.getElementById("reviewModal");
         this.closeModal = document.querySelector(".close");
@@ -12,7 +11,6 @@ export class ReviewManager {
 
     init() {
         this.displayReviews();
-        this.displayAverageRating();
         this.setupReviewForm();
         this.setupModalClose();
     }
@@ -53,7 +51,7 @@ export class ReviewManager {
         })
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error("Error occurred");
+                    throw new Error("Произошла ошибка");
                 }
                 return response.json();
             })
@@ -61,7 +59,6 @@ export class ReviewManager {
                 this.modal.style.display = "none";
                 this.reviewForm.reset();
                 this.displayReviews();
-                this.displayAverageRating();
             })
             .catch((error) => {
                 console.error("Error:", error);
@@ -72,7 +69,7 @@ export class ReviewManager {
         fetch(`${this.apiUrl}/${this.articleId}/reviews`)
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error("Error occurred");
+                    throw new Error("Произошла ошибка");
                 }
                 return response.json();
             })
@@ -80,7 +77,7 @@ export class ReviewManager {
                 this.reviewsContainer.innerHTML = "";
                 if (reviews.length === 0) {
                     const noReviews = document.createElement("p");
-                    noReviews.textContent = "No reviews yet.";
+                    noReviews.textContent = "Нету отзывов.";
                     this.reviewsContainer.appendChild(noReviews);
                 } else {
                     reviews.forEach((review) => {
@@ -110,41 +107,12 @@ export class ReviewManager {
         })
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error("Error occurred");
+                    throw new Error("Произошла ошибка");
                 }
                 return response.json();
             })
             .then(() => {
                 reviewElement.remove();
-                this.displayAverageRating();
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
-    }
-
-    displayAverageRating() {
-        fetch(`${this.apiUrl}/${this.articleId}/reviews`)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Error occurred");
-                }
-                return response.json();
-            })
-            .then((reviews) => {
-                if (reviews.length === 0) {
-                    this.averageRatingContainer.innerHTML =
-                        "Средняя оценка: Нет оценок";
-                } else {
-                    const totalRating = reviews.reduce(
-                        (sum, review) => sum + parseInt(review.rating),
-                        0
-                    );
-                    const averageRating = totalRating / reviews.length;
-                    this.averageRatingContainer.innerHTML = `Средняя оценка: ${averageRating.toFixed(
-                        1
-                    )}`;
-                }
             })
             .catch((error) => {
                 console.error("Error:", error);

@@ -91,6 +91,18 @@ export class ArticleDetails {
             currentIndex = (currentIndex + 1) % images.length;
             modalImage.src = images[currentIndex].src;
         })
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') { 
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                modalImage.src = images[currentIndex].src;
+            } else if (event.key === 'ArrowRight') { 
+                currentIndex = (currentIndex + 1) % images.length;
+                modalImage.src = images[currentIndex].src;
+            } else if (event.key === 'Escape') { 
+                modalImg.style.display = 'none'; 
+            }
+        });
     }       
 
     openReviewModal() {
