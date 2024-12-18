@@ -1,6 +1,7 @@
 export class ArticleFilter {
     constructor(articleManager) {
         this.articleManager = articleManager;
+        this.searchTimeout = null; // Переменная для хранения таймера
     }
 
     fetchArticles({
@@ -67,6 +68,12 @@ export class ArticleFilter {
     }
 
     filterArticlesBySearch(query) {
-        this.fetchArticles({ query });
+        if (this.searchTimeout) {
+            clearTimeout(this.searchTimeout);
+        }
+
+        this.searchTimeout = setTimeout(() => {
+            this.fetchArticles({ query });
+        }, 1000); 
     }
 }
