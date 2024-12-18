@@ -1,7 +1,7 @@
 export class ArticleFilter {
     constructor(articleManager) {
         this.articleManager = articleManager;
-        this.searchTimeout = null; // Переменная для хранения таймера
+        this.searchTimeout = null; 
     }
 
     fetchArticles({

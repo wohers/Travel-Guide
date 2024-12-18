@@ -5,8 +5,6 @@ class Modal {
         this.closeBtn = document.querySelector(closeBtnSelector);
         this.form = document.querySelector(formSelector);
 
-        this.savedEmail = localStorage.getItem("userEmail");
-
         this.openBtn.addEventListener("click", () => this.openModal());
         this.closeBtn.addEventListener("click", () => this.closeModal());
         window.addEventListener("click", (event) => this.handleOutsideClick(event));
