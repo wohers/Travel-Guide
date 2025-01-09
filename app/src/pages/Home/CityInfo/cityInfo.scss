@@ -12,7 +12,7 @@
     &__title {
         font-size: 36px;
         font-weight: bold;
-        color: var(--color-body);
+        color: #333;
         margin-bottom: 20px;
         text-align: center;
     }
@@ -20,12 +20,12 @@
     &__text {
         font-size: 18px;
         line-height: 1.6;
-        color: var(--color-body);
+        color: #555;
 
         &-title {
             font-size: 24px;
             font-weight: bold;
-            color: var(--color-body);
+            color: #444;
             margin-bottom: 15px;
         }
 

@@ -32,16 +32,9 @@
         height: 50px;
     }
 
-    &__darkModeBtn{
-        width: 50px;
-        height: 50px;
-        margin-left: 25px;
-        cursor: pointer;
-    }
-
     &__link {
         font-size: 24px;
-        color: var(--color-body);
+        color: #2e2e2e;
         text-decoration: none;
 
         &:hover {
@@ -57,7 +50,7 @@
         .bar {
             height: 3px;
             width: 25px;
-            background-color: var(--color-body);
+            background-color: #2e2e2e;
             margin: 4px 0;
             border-radius: 3px;
         }
@@ -80,7 +73,7 @@
             gap: 20px;
             text-align: center;
             width: 100%;
-            background-color: var(--color-bg);
+            background-color: #fff;
             position: absolute;
             top: 60px;
             left: 0;

@@ -1,7 +1,7 @@
 // FOOTER //
 
 .footer {
-    background-color: var(--color-footer);
+    background-color: #ebf8df;
     padding: 40px 0;
 
     &__container {
@@ -27,7 +27,7 @@
         font-size: 13px;
         font-weight: 500;
         margin-top: 10px;
-        color: var(--color-body);
+        color: #6a6a6a;
        
     }
 
@@ -37,12 +37,12 @@
 
     &__menu {
         list-style: none;
-        color: var(--color-body);
+        color: #6a6a6a;
         padding: 0;
     }
 
     a {
-        color: var(--color-body);
+        color: #6a6a6a;
         text-decoration: none; 
     }
 
@@ -52,7 +52,7 @@
 
 
     &__info {
-        color: var(--color-body);
+        color: #6a6a6a;
         margin-top: 20px;
        
     }

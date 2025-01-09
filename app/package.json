@@ -34,6 +34,9 @@
     ]
   },
   "devDependencies": {
-    "sass": "^1.83.1"
+    "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
+    "sass": "^1.83.1",
+    "sass-loader": "^16.0.4"
   }
 }

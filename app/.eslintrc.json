@@ -1,0 +1,30 @@
+{
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "plugins": ["react", "prettier"],
+    "rules": {
+      "prettier/prettier": "error", // Ошибки, если код не соответствует Prettier
+      "react/react-in-jsx-scope": "off", // Отключаем правило для React 17+
+      "react/prop-types": "off" // Отключаем проверку prop-types (опционально)
+    },
+    "settings": {
+      "react": {
+        "version": "detect" // Автоматически определяет версию React
+      }
+    }
+  }

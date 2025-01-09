@@ -1,7 +1,7 @@
 // Карточки //
 
 .news {
-    background-color: var(--color-news);
+    background-color: #fff;
     border-radius: 10px;
     padding: 20px;
     margin-top: 40px;
@@ -11,7 +11,7 @@
         font-weight: bold;
         text-align: center;
         margin-bottom: 20px;
-        color: var(--color-body);
+        color: #333;
         text-transform: uppercase;
         letter-spacing: 2px;
     }
@@ -22,7 +22,7 @@
         gap: 20px;
 
         &-item_1, &-item_2, &-item_3, &-item_4 {
-            background-color: var(--color-bg);
+            background-color: #f9f9f9;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -51,7 +51,7 @@
             .news__grid-text {
                 font-size: 1.1em;
                 line-height: 1.6;
-                color: var(--color-body);
+                color: #555;
                 text-align: justify;
             }
         }
