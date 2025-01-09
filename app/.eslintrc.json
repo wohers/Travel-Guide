@@ -18,13 +18,13 @@
     },
     "plugins": ["react", "prettier"],
     "rules": {
-      "prettier/prettier": "error", // Ошибки, если код не соответствует Prettier
-      "react/react-in-jsx-scope": "off", // Отключаем правило для React 17+
-      "react/prop-types": "off" // Отключаем проверку prop-types (опционально)
+      "prettier/prettier": "error", 
+      "react/react-in-jsx-scope": "off", 
+      "react/prop-types": "off" 
     },
     "settings": {
       "react": {
-        "version": "detect" // Автоматически определяет версию React
+        "version": "detect" 
       }
     }
   }
