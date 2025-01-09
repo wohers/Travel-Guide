@@ -7,7 +7,7 @@
     "extends": [
       "eslint:recommended",
       "plugin:react/recommended",
-      "plugin:prettier/recommended" // Добавьте эту строку
+      "plugin:prettier/recommended"
     ],
     "parserOptions": {
       "ecmaVersion": "latest",
@@ -16,15 +16,15 @@
         "jsx": true
       }
     },
-    "plugins": ["react", "prettier"], // Добавьте "prettier" в plugins
+    "plugins": ["react", "prettier"],
     "rules": {
-      "prettier/prettier": "error", // Включите правило для Prettier
-      "react/react-in-jsx-scope": "off", // Опционально: отключите правило для React 17+
-      "react/prop-types": "off" // Опционально: отключите проверку prop-types
+      "prettier/prettier": "error",
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off"
     },
     "settings": {
       "react": {
-        "version": "detect" // Автоматически определяет версию React
+        "version": "detect"
       }
     }
   }
