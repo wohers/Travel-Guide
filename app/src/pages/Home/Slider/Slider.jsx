@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../Slider/slider.scss'
+import './slider.scss'
 import nk1 from '../../../assets/images/nk1.jpg';
 import nk3 from '../../../assets/images/nk3.jpg';
 import nk6 from '../../../assets/images/nk6.jpg';

@@ -5,9 +5,7 @@ import './assets/styles/main.scss'
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <div className="App"><Home /></div>
   );
 }
 
