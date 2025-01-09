@@ -1,0 +1,143 @@
+// header //
+
+.header {
+    &__wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    &__box {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    &__menu {
+        display: flex;
+        gap: 100px;
+    }
+
+    &__item{
+        list-style: none;
+    }
+
+    &__logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    &__darkModeBtn{
+        width: 50px;
+        height: 50px;
+        margin-left: 25px;
+        cursor: pointer;
+    }
+
+    &__link {
+        font-size: 24px;
+        color: var(--color-body);
+        text-decoration: none;
+
+        &:hover {
+            color: rgb(0, 0, 0);
+        }
+    }
+
+    &__menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+
+        .bar {
+            height: 3px;
+            width: 25px;
+            background-color: var(--color-body);
+            margin: 4px 0;
+            border-radius: 3px;
+        }
+    }
+}
+
+
+
+// Адаптив для header//
+
+@media (max-width: 768px) {
+    .header {
+        &__wrap {
+            padding: 10px 20px;
+        }
+
+        &__menu {
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+            width: 100%;
+            background-color: var(--color-bg);
+            position: absolute;
+            top: 60px;
+            left: 0;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        &__menu-toggle {
+            display: flex;
+            width: 100%; 
+        }
+
+        &__menu.active {
+            display: flex;
+            z-index: 1;
+        }
+
+        &__link {
+            font-size: 18px;
+        }
+    }
+}
+
+
+@media (max-width: 480px) {
+    .header {
+        &__wrap {
+            padding: 10px;
+        }
+
+        &__logo {
+            width: 40px;
+            height: 40px;
+        }
+
+        &__menu {
+            top: 50px;
+        }
+
+        &__link {
+            font-size: 16px;
+        }
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .header {
+        &__menu {
+            gap: 50px;
+        }
+
+        &__link {
+            font-size: 20px;
+        }
+        &__nav {
+            font-size: 10px;
+        }
+    }
+}
