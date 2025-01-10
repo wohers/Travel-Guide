@@ -3,6 +3,9 @@ import './slider.scss'
 import nk1 from '../../../assets/images/nk1.jpg';
 import nk3 from '../../../assets/images/nk3.jpg';
 import nk6 from '../../../assets/images/nk6.jpg';
+import SliderImage from "./SllideComponents/SliderImages";
+import SlideControle from "./SllideComponents/SlideControle";
+import SlideTitle from "./SllideComponents/SlideTitle";
 
 export const Slider = () => {
     const [slideIndex, setSlideIndex] = useState(0);
@@ -17,49 +20,19 @@ export const Slider = () => {
     ];
 
     const showPreviousSlide = () => {
-        setSlideIndex((prevIndex) => {
-            if(prevIndex === 0){
-                return slides.length - 1 
-            }
-            else{
-                return prevIndex - 1
-            }
-        });
+        setSlideIndex((prevIndex) => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1));
     };
 
     const showNextSlide = () => {
-        setSlideIndex((prevIndex) => {
-            if (prevIndex === slides.length - 1){
-                return 0
-            }
-            else{
-                return prevIndex + 1
-            }
-        });
+        setSlideIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
     };
 
     return (
         <main className="slider">
-            <h1 className="slider__title">Нижнекамск</h1>
+            <SlideTitle className="slider__title">Нижнекамск</SlideTitle>
             <div className="slider__container">
-                <div className="slider__sliders">
-                    {}
-                    <img src={slides[slideIndex]} alt={`Slide ${slideIndex + 1}`} />
-                </div>
-                <button
-                    className="slider__prev-button"
-                    onClick={showPreviousSlide}
-                    aria-label="Посмотреть предыдущий слайд"
-                >
-                    &lt;
-                </button>
-                <button
-                    className="slider__next-button"
-                    onClick={showNextSlide}
-                    aria-label="Посмотреть следующий слайд"
-                >
-                    &gt;
-                </button>
+                <SliderImage src={slides[slideIndex]} alt={`Slide ${slideIndex + 1}`} />
+                <SlideControle  onPrevious={showPreviousSlide} onNext={showNextSlide}/>
             </div>
         </main>
     );
