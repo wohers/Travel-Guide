@@ -3,7 +3,7 @@ import React from 'react'
 const Text = ({ className, children }) => {
   return (
     <div className={className}>
-        {children}
+        <p>{children}</p>
     </div>
   )
 }

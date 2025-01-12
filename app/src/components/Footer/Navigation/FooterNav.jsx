@@ -1,32 +1,34 @@
 import React from 'react'
+import Button from '../../Button/Button'
+import { Link } from 'react-router-dom';
 
 const FooterNav = () => {
-  return (
-    <nav className="footer__nav">
-        <ul className="footer__menu">
-        <li className="footer__item">
-            <a href="#header" className="header__link_home">
-            Главная
-            </a>
-        </li>
-        <li className="footer__item">
-            <a href="#map" className="header__link_home">
-            Карта
-            </a>
-        </li>
-        <li className="footer__item">
-            <a href="/attractions" className="footer__link_katalog">
-            Достопримечательности
-            </a>
-        </li>
-        <li className="footer__item">
-            <a href="/about" className="footer__link_comment">
-            Контакты
-            </a>
-        </li>
-        </ul>
-    </nav>
-  )
+    return (
+        <nav className="footer__nav">
+            <ul className="footer__menu">
+                <li className="footer__item">
+                <Link to="/">
+                    <Button className="footer__button">Главная</Button>
+                </Link>
+                </li>
+                <li className="footer__item">
+                <a href="/#map">
+                    <Button className="footer__button">Карта</Button>
+                </a>
+                </li>
+                <li className="footer__item">
+                <Link to="/attractions">
+                    <Button className="footer__button">Достопримечательности</Button>
+                </Link>
+                </li>
+                <li className="footer__item">
+                <Link to="/about">
+                    <Button className="footer__button">Контакты</Button>
+                </Link>
+                </li>
+            </ul>
+        </nav>
+    )
 }
 
 export default FooterNav
