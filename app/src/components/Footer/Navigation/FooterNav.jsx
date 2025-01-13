@@ -17,7 +17,7 @@ const FooterNav = () => {
                 </a>
                 </li>
                 <li className="footer__item">
-                <Link to="/attractions">
+                <Link to="/Attraction">
                     <Button className="footer__button">Достопримечательности</Button>
                 </Link>
                 </li>

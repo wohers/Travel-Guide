@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Card from './Card';
 import Img from '../../../components/ImgComponents/Img';
 import Text from '../../../components/Text/Text';

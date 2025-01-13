@@ -1,14 +1,20 @@
-import React from 'react'
-import FormInput from './FormInput'
-import Button from '../../../components/Button/Button'
+import React from 'react';
+import FormInput from './FormInput';
+import Button from '../../../components/Button/Button';
 
-const Form = ({ id }) => {
+const Form = ({ id, onSubmit, ref }) => {
     return (
-        <form id={id}>
-            <FormInput type="email" id="emailInput" placeholder="Введите ваш email" required />
+        <form id={id} onSubmit={onSubmit}>
+            <FormInput
+                type="email"
+                id="emailInput"
+                placeholder="Введите ваш email"
+                required
+                ref={ref} 
+            />
             <Button type="submit">Отправить</Button>
         </form>
-    )
-}
+    );
+};
 
-export default Form
+export default Form;

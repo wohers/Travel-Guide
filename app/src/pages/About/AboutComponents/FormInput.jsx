@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-const FormInput = ({ type, id, placeholder }) => {
+const FormInput = React.forwardRef(({ type, id, placeholder, required }, ref) => {
     return (
-        <input type={type} id={id} placeholder={placeholder} required />
-    )
-}
+        <input
+            type={type}
+            id={id}
+            placeholder={placeholder}
+            required={required}
+            ref={ref}
+        />
+    );
+});
 
-export default FormInput
+export default FormInput;

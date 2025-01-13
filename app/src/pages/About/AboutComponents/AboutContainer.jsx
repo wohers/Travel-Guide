@@ -9,7 +9,7 @@ const AboutContainer = () => {
 
   const toggleModal = () => {
     setOpenModal(!openModal);
-    console.log('dfgfgf')
+    console.log(!openModal)
   };
 
   return (
@@ -17,10 +17,15 @@ const AboutContainer = () => {
       <div className="about__container">
         <Text className="about__title">Контактные данные</Text>
         <Text className="about__text">Мы всегда рады помочь вам! Свяжитесь с нами любым удобным способом:</Text>
-        <Cards className="about__cards" toggleModal={toggleModal} />
+        <Cards className="about__cards" openModal={openModal} toggleModal={toggleModal} />
       </div>
-      <Modal id="modal" className="modal" openModal={openModal}>
-        <ModalContent toggleModal={toggleModal} /> 
+      <Modal
+        id="modal"
+        className={`modal ${openModal ? 'modal--open' : ''}`} 
+        isOpen={openModal}
+        onClose={toggleModal}
+      >
+        <ModalContent  onClose={toggleModal}/>
       </Modal>
     </div>
   );

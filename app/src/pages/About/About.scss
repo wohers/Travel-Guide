@@ -154,66 +154,78 @@
 }
 
 // Модальное окно
-
 .modal {
-    display: none; 
-
+    display: none; // По умолчанию модальное окно скрыто
+  
     &--open {
-        display: flex;
-        position: fixed;
-        z-index: 1; 
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto; 
-        background-color: rgba(0, 0, 0, 0.4); 
-      }
-
-    &__content{
-        background-color: #fefefe;
-        margin: 15% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%; 
-        max-width: 600px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4); // Полупрозрачный оверлей
     }
-
-    &__close{
+  
+    &__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4); // Полупрозрачный оверлей
+      cursor: pointer; // Курсор указывает, что оверлей кликабелен
+    }
+  
+    &__content {
+      position: relative;
+      background-color: #fefefe;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1001; // Контент модального окна должен быть выше оверлея
+    }
+  
+    &__close {
         color: #aaa;
         float: right;
         font-size: 28px;
         font-weight: bold;
         cursor: pointer;
-    }
-
-    &__close:hover{
-        color: black;
-        text-decoration: none;
-        cursor: pointer;        
-    }
-
-    &__close:focus{
+        width: 50px;
+        height: 50px;
+        background-color: unset;
+        border: navajowhite;
+  
+      &:hover,
+      &:focus {
         color: black;
         text-decoration: none;
         cursor: pointer;
+      }
     }
-
-    &__h2{
-        margin-top: 0;
+  
+    &__h2 {
+      margin-top: 0;
     }
-
-    &__p{
-        margin-top: 10px;
+  
+    &__p {
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
-}
-
-form {
+  }
+  
+  // Стили для формы внутри модального окна
+  form {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    
   }
   
   input[type="email"] {
@@ -230,9 +242,9 @@ form {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
   
-  button[type="submit"]:hover {
-    background-color: #45a049;
+    &:hover {
+      background-color: #45a049;
+    }
   }
 
