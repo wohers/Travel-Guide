@@ -14,12 +14,12 @@ const Main = () => {
           <Filter />
           <Sort />
         </div>
-        <div class="card">
-          <div class="loader" id="loader">
-            <div class="spinner"></div>
+        <div className="card">
+          <div className="loader" id="loader">
+            <div className="spinner"></div>
           </div>
-          <div class="card__articles" id="articles"></div>
-          <ul class="pagination" id="pagination"></ul>
+          <div className="card__articles" id="articles"></div>
+          <ul className="pagination" id="pagination"></ul>
         </div>
       </div>
     </section>
