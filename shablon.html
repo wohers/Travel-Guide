@@ -1,60 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/Attractions.css">
-    <link rel="shortcut icon" href="https://img.icons8.com/?size=100&id=118940&format=png&color=000000" type="image/png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/Attractions.css" />
+    <link
+      rel="shortcut icon"
+      href="https://img.icons8.com/?size=100&id=118940&format=png&color=000000"
+      type="image/png"
+    />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="loader" id="loader">
-        <div class="spinner"></div>
+      <div class="spinner"></div>
     </div>
 
     <div class="article-details" id="articleDetails"></div>
 
-    <div id="average-rating"></div> 
+    <div id="average-rating"></div>
 
-    <div id="reviews-container"></div> 
+    <div id="reviews-container"></div>
 
     <div id="modalForimages" class="modalimg">
-        <span class="modalimg__closeImg">&times;</span>
-        <img id="modalImage" class="modalimg__content">
-        <span class="modal-navigation prev">&#10094;</span>
-        <span class="modal-navigation next">&#10095;</span>
+      <span class="modalimg__closeImg">&times;</span>
+      <img id="modalImage" class="modalimg__content" />
+      <span class="modal-navigation prev">&#10094;</span>
+      <span class="modal-navigation next">&#10095;</span>
     </div>
 
     <div id="reviewModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Оставить отзыв</h2>
-            <form id="reviewForm">
-                <label for="modalName">Имя:</label>
-                <input type="text" id="modalName" name="name" required />
-                <label for="modalReview">Отзыв:</label>
-                <textarea
-                    id="modalReview"
-                    name="review"
-                    rows="5"
-                    required
-                ></textarea>
-                <label for="modalRating">Оценка:</label>
-                <select id="modalRating" name="rating" required>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <button type="submit">Отправить</button>
-            </form>
-        </div>
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Оставить отзыв</h2>
+        <form id="reviewForm">
+          <label for="modalName">Имя:</label>
+          <input type="text" id="modalName" name="name" required />
+          <label for="modalReview">Отзыв:</label>
+          <textarea id="modalReview" name="review" rows="5" required></textarea>
+          <label for="modalRating">Оценка:</label>
+          <select id="modalRating" name="rating" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <button type="submit">Отправить</button>
+        </form>
+      </div>
     </div>
-    
+
     <script type="module" src="./assets/js/shablon/shablon.js"></script>
-</body>
+  </body>
 </html>

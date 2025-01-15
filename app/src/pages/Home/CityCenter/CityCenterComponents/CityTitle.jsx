@@ -1,13 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const GridTitle = ({ className, children}) => {
+const GridTitle = ({ className, children }) => {
   return (
     <div>
-        <div className={className}>
-            {children}
-        </div>
+      <div className={className}>{children}</div>
     </div>
-  )
-}
+  );
+};
 
-export default GridTitle
+export default GridTitle;

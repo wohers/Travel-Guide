@@ -2,8 +2,8 @@ import { ArticleDetails } from "./articleDetails.js";
 import { ReviewManager } from "./reviewManager.js";
 
 function getParam(name) {
-    const UrlParam = new URLSearchParams(window.location.search);
-    return UrlParam.get(name);
+  const UrlParam = new URLSearchParams(window.location.search);
+  return UrlParam.get(name);
 }
 
 const articleId = getParam("id");

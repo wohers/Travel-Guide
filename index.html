@@ -1,174 +1,315 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/main.css">
-    <link rel="shortcut icon" href="./assets/img/main-logo.png" type="image/png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/img/main-logo.png"
+      type="image/png"
+    />
     <title>Ваш, Путеводитель!</title>
-</head>
-<body>
+  </head>
+  <body>
     <header id="header">
-        <div class="container">
-            <div class="header__wrap">
-                <img src="./assets/img/main-logo.png" alt="Logo" class="header__logo">
-                <div class="header__box">
-                    <div class="header__menu-toggle" id="menu-toggle">
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                    </div>
-                    <nav class="header__nav">
-                        <ul class="header__menu" id="menu">
-                            <li class="header__item">
-                                <a href="./index.html" class="header__link">Главная</a>
-                            </li>
-                            <li class="header__item">
-                                <a href="#map" class="header__link">Карта</a>
-                            </li>
-                            <li class="header__item">   
-                                <a href="./Attractions.html" class="header__link">Достопримечательности</a>
-                            </li>
-                            <li class="header__item">
-                                <a href="./about.html" class="header__link">Контакты</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+      <div class="container">
+        <div class="header__wrap">
+          <img
+            src="./assets/img/main-logo.png"
+            alt="Logo"
+            class="header__logo"
+          />
+          <div class="header__box">
+            <div class="header__menu-toggle" id="menu-toggle">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
             </div>
+            <nav class="header__nav">
+              <ul class="header__menu" id="menu">
+                <li class="header__item">
+                  <a href="./index.html" class="header__link">Главная</a>
+                </li>
+                <li class="header__item">
+                  <a href="#map" class="header__link">Карта</a>
+                </li>
+                <li class="header__item">
+                  <a href="./Attractions.html" class="header__link"
+                    >Достопримечательности</a
+                  >
+                </li>
+                <li class="header__item">
+                  <a href="./about.html" class="header__link">Контакты</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
+      </div>
     </header>
 
     <main class="slider">
-        <h1 class="slider__title">Нижнекамск</h1>
-        <div class="slider__container">
+      <h1 class="slider__title">Нижнекамск</h1>
+      <div class="slider__container">
         <div class="slider__sliders">
-            <img src="./assets/img/nk1.jpg" alt="first">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Nizhnekamsk._Kama_River_P6263326_2575.jpg" alt="second">
-            <img src="./assets/img/nk3.jpg" alt="three">
-            <img src="https://www.tatar-inform.ru/resize/shd/images/uploads/news/2023/9/13/bde5b47471ed53cbc7fd34fce25b1a34.jpg" alt="four">
-            <img src="./assets/img/nk6.jpg" alt="five">
-            <img src="https://transphoto.org/photo/19/52/09/1952093.jpg" alt="">
-            </div>
-            <button class="slider__prev-button " aria-label="Посмотреть предыдущий слайд">&lt;</button>
-            <button class="slider__next-button" aria-label="Посмотреть следующий слайд">&gt;</button>
+          <img src="./assets/img/nk1.jpg" alt="first" />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Nizhnekamsk._Kama_River_P6263326_2575.jpg"
+            alt="second"
+          />
+          <img src="./assets/img/nk3.jpg" alt="three" />
+          <img
+            src="https://www.tatar-inform.ru/resize/shd/images/uploads/news/2023/9/13/bde5b47471ed53cbc7fd34fce25b1a34.jpg"
+            alt="four"
+          />
+          <img src="./assets/img/nk6.jpg" alt="five" />
+          <img src="https://transphoto.org/photo/19/52/09/1952093.jpg" alt="" />
         </div>
+        <button
+          class="slider__prev-button"
+          aria-label="Посмотреть предыдущий слайд"
+        >
+          &lt;
+        </button>
+        <button
+          class="slider__next-button"
+          aria-label="Посмотреть следующий слайд"
+        >
+          &gt;
+        </button>
+      </div>
     </main>
 
     <section class="history">
-        <div class="history__container">
-            <div class="history__title">История города</div>
-            <div class="history__text">
-                <div class="history__text-title">Планирование и начало строительства</div>
-                <div class="history__text-txt">
-                    <p>8 мая <span>года Совет Министров СССР</span>принял Постановление «О списке строек, вновь начинаемых проектированием в 1958 году». 23 июля 1958 года <span>ЦК КПСС и Советом Министров СССР</span> принято Постановление «Об ускорении производства искусственных и синтетических волокон, пластических масс и других синтетических материалов и изделий для удовлетворения потребностей 
-                        населения и нужд промышленности в 1958—1965 годы». Этими документами был утверждён проект создания в северо-восточной части Татарской <span>АССР</span>Нижнекамского промышленного района. Планировалось построить крупнейший в Европе нефтехимический комплекс, который должен был перерабатывать нефть, добывавшуюся на юго-востоке <span>ТАССР</span>(см., например, Ромашкинское нефтяное месторождение) и 
-                        производить новые виды пластических масс, синтетических каучуков, а также другое углеводородное сырьё для дальнейшей химической переработки.</p>
+      <div class="history__container">
+        <div class="history__title">История города</div>
+        <div class="history__text">
+          <div class="history__text-title">
+            Планирование и начало строительства
+          </div>
+          <div class="history__text-txt">
+            <p>
+              8 мая <span>года Совет Министров СССР</span>принял Постановление
+              «О списке строек, вновь начинаемых проектированием в 1958 году».
+              23 июля 1958 года
+              <span>ЦК КПСС и Советом Министров СССР</span> принято
+              Постановление «Об ускорении производства искусственных и
+              синтетических волокон, пластических масс и других синтетических
+              материалов и изделий для удовлетворения потребностей населения и
+              нужд промышленности в 1958—1965 годы». Этими документами был
+              утверждён проект создания в северо-восточной части Татарской
+              <span>АССР</span>Нижнекамского промышленного района. Планировалось
+              построить крупнейший в Европе нефтехимический комплекс, который
+              должен был перерабатывать нефть, добывавшуюся на юго-востоке
+              <span>ТАССР</span>(см., например, Ромашкинское нефтяное
+              месторождение) и производить новые виды пластических масс,
+              синтетических каучуков, а также другое углеводородное сырьё для
+              дальнейшей химической переработки.
+            </p>
 
-                    <p>В соответствии с проектом районной планировки Нижнекамского промышленного района коллективом Государственного ордена Трудового Красного Знамени института проектирования городов (Гипрогор) в <span>1959 году был создан генеральный план города на расчётную численность 170 тысяч человек.</span> Автором генплана являлся В. А. Пашков, руководителем работ — Е. И. Кутырев. 
-                        Разработанный ими генплан Нижнекамска был удостоен в 1960 году Диплома I степени и Золотой медали<span>ВДНХ СССР</span>на Всесоюзном смотре-конкурсе проектов новых городов.</p>
+            <p>
+              В соответствии с проектом районной планировки Нижнекамского
+              промышленного района коллективом Государственного ордена Трудового
+              Красного Знамени института проектирования городов (Гипрогор) в
+              <span
+                >1959 году был создан генеральный план города на расчётную
+                численность 170 тысяч человек.</span
+              >
+              Автором генплана являлся В. А. Пашков, руководителем работ —
+              Е. И. Кутырев. Разработанный ими генплан Нижнекамска был удостоен
+              в 1960 году Диплома I степени и Золотой медали<span
+                >ВДНХ СССР</span
+              >на Всесоюзном смотре-конкурсе проектов новых городов.
+            </p>
 
-                    <p>25 декабря <span>1960 года в район села Афанасово прибыли первый</span>, а 2 января 1961 года второй санно-тракторные поезда с энтузиастами-первостроителями. Возник посёлок строителей, рядом (в 6 км к юго-востоку от деревни Соболеково в районе лесного массива) развернулась грандиозная стройка энергетического блока и химкомбината. Ей был присвоен статус Всесоюзной ударной комсомольской стройки.</p>
+            <p>
+              25 декабря
+              <span>1960 года в район села Афанасово прибыли первый</span>, а 2
+              января 1961 года второй санно-тракторные поезда с
+              энтузиастами-первостроителями. Возник посёлок строителей, рядом (в
+              6 км к юго-востоку от деревни Соболеково в районе лесного массива)
+              развернулась грандиозная стройка энергетического блока и
+              химкомбината. Ей был присвоен статус Всесоюзной ударной
+              комсомольской стройки.
+            </p>
 
-                    <p><span> 19 апреля 1961 года</span> Указом Президиума Верховного Совета Татарской <span>АССР</span> зарегистрирован вновь возникший населённый пункт Афанасьевского сельсовета Челнинского района <span>ТАССР</span> с присвоением ему наименования Нижнекамский. Его население составляло около 500 человек.</p>
+            <p>
+              <span> 19 апреля 1961 года</span> Указом Президиума Верховного
+              Совета Татарской <span>АССР</span> зарегистрирован вновь возникший
+              населённый пункт Афанасьевского сельсовета Челнинского района
+              <span>ТАССР</span> с присвоением ему наименования Нижнекамский.
+              Его население составляло около 500 человек.
+            </p>
 
-                    <p>В 1962 году Гипрогором был разработан технико-экономический доклад (ТЭД) развития производственных сил Татарской АССР, <span>а в 1965 году — проект районной планировки Набережно-Челнинского промрайона</span>, которыми предусматривалось дальнейшее развитие комплекса предприятий Нижнекамского промузла с включением дополнительного ряда новых производств. Эти документы определили расчётную численность населения города Нижнекамска в 250 тысяч человек.</p>
+            <p>
+              В 1962 году Гипрогором был разработан технико-экономический доклад
+              (ТЭД) развития производственных сил Татарской АССР,
+              <span
+                >а в 1965 году — проект районной планировки
+                Набережно-Челнинского промрайона</span
+              >, которыми предусматривалось дальнейшее развитие комплекса
+              предприятий Нижнекамского промузла с включением дополнительного
+              ряда новых производств. Эти документы определили расчётную
+              численность населения города Нижнекамска в 250 тысяч человек.
+            </p>
 
-                    <p>В апреле 1964 года был заложен фундамент первого жилого многоквартирного дома, <span>а уже через два года население города достигло 30 тысяч человек</span>. Темпы строительства и пафос созидания нового города вдохновили композитора А. Пахмутову и поэта Н. Добронравова на песню о строителях новых городов «Смелость города берёт».</p>
+            <p>
+              В апреле 1964 года был заложен фундамент первого жилого
+              многоквартирного дома,
+              <span
+                >а уже через два года население города достигло 30 тысяч
+                человек</span
+              >. Темпы строительства и пафос созидания нового города вдохновили
+              композитора А. Пахмутову и поэта Н. Добронравова на песню о
+              строителях новых городов «Смелость города берёт».
+            </p>
 
-                    <p><span>12 января 1965 года</span> путём выделения его из состава Челнинского и Шереметьевского районов был образован Нижнекамский район ТАССР.</p>
+            <p>
+              <span>12 января 1965 года</span> путём выделения его из состава
+              Челнинского и Шереметьевского районов был образован Нижнекамский
+              район ТАССР.
+            </p>
 
-                    <p>22 сентября 1966 года рабочему посёлку Нижнекамский был присвоен статус города. Он был назван Нижнекамском. Этот день считается официальным днём рождения города, хотя празднование дня города в последнее время проводятся <span>30 августа в День Республики Татарстан</span>.</p>
-                </div>
-            </div>
+            <p>
+              22 сентября 1966 года рабочему посёлку Нижнекамский был присвоен
+              статус города. Он был назван Нижнекамском. Этот день считается
+              официальным днём рождения города, хотя празднование дня города в
+              последнее время проводятся
+              <span>30 августа в День Республики Татарстан</span>.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <section class="news">
-        <div class="container">
-            <div class="news__title">Сити - Центры</div>
-            <div class="news__grid">
-                <div class="news__grid news__grid-item_1">
-                    <img src="./assets/img/olimp11.jpg" alt="news1">
-                    <img src="https://shopandmall.ru/images/offers/2020-01/gb_5350e5d7e104a13be307bf3acd5d0456.jpg" alt="news1">
-                </div>
-                <div class="news__grid news__grid-item_2">
-                    <div class="news__grid-text">
-                        <p> Олимп – это 6 этажей шоппинга, <br>
-                            развлечений и ресторанов для <br>
-                            всей семьи, а так же удобная <br>
-                            подземная парковка с <br>
-                            автомойкой. Олимп относится к рубрикам: <br>
-                            детские спортивные секции. <br>
-                            Вы можете узнать всю интересующую вас <br>
-                            информацию, позвонив по телефону <br>
-                            +7 (917) 898-80-66.</p>
-                    </div>
-                </div>
-                <div class="news__grid news__grid-item_3">
-                    <div class="news__grid-text">
-                        <p> Суперрегиональный многофункциональный комплекс <br>
-                            Рамус молл – один из крупнейших проектов в <br>
-                            республике Татарстан и самый крупный проект<br>
-                            в городе Нижнекамск. Город Нижнекамск <br>
-                            это крупнейший центр нефтехимической <br>
-                            промышленности России.
-                    </div>
-                </div>
-                <div class="news__grid news__grid-item_4">
-                    <img src="./assets/img/rm11.jpg" alt="news1">
-                    <img src="https://www.malls.ru/upload/medialibrary/84f/v_galereyu_7.jpg" alt="news1">
-                </div>
+      <div class="container">
+        <div class="news__title">Сити - Центры</div>
+        <div class="news__grid">
+          <div class="news__grid news__grid-item_1">
+            <img src="./assets/img/olimp11.jpg" alt="news1" />
+            <img
+              src="https://shopandmall.ru/images/offers/2020-01/gb_5350e5d7e104a13be307bf3acd5d0456.jpg"
+              alt="news1"
+            />
+          </div>
+          <div class="news__grid news__grid-item_2">
+            <div class="news__grid-text">
+              <p>
+                Олимп – это 6 этажей шоппинга, <br />
+                развлечений и ресторанов для <br />
+                всей семьи, а так же удобная <br />
+                подземная парковка с <br />
+                автомойкой. Олимп относится к рубрикам: <br />
+                детские спортивные секции. <br />
+                Вы можете узнать всю интересующую вас <br />
+                информацию, позвонив по телефону <br />
+                +7 (917) 898-80-66.
+              </p>
             </div>
+          </div>
+          <div class="news__grid news__grid-item_3">
+            <div class="news__grid-text">
+              <p>
+                Суперрегиональный многофункциональный комплекс <br />
+                Рамус молл – один из крупнейших проектов в <br />
+                республике Татарстан и самый крупный проект<br />
+                в городе Нижнекамск. Город Нижнекамск <br />
+                это крупнейший центр нефтехимической <br />
+                промышленности России.
+              </p>
+            </div>
+          </div>
+          <div class="news__grid news__grid-item_4">
+            <img src="./assets/img/rm11.jpg" alt="news1" />
+            <img
+              src="https://www.malls.ru/upload/medialibrary/84f/v_galereyu_7.jpg"
+              alt="news1"
+            />
+          </div>
         </div>
+      </div>
     </section>
 
     <section id="map">
-        <div class="container">
-            <div class="map__title">КАРТА ГОРОДА</div>
-            <div class="map__google-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d72104.61733379864!2d51.81018509596906!3d55.61472983429741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415fecad116124e1%3A0x62ec0a5ee724e1cc!2z0J3QuNC20L3QtdC60LDQvNGB0LosINCg0LXRgdC_LiDQotCw0YLQsNGA0YHRgtCw0L0!5e0!3m2!1sru!2sru!4v1728819387697!5m2!1sru!2sru" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+      <div class="container">
+        <div class="map__title">КАРТА ГОРОДА</div>
+        <div class="map__google-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d72104.61733379864!2d51.81018509596906!3d55.61472983429741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415fecad116124e1%3A0x62ec0a5ee724e1cc!2z0J3QuNC20L3QtdC60LDQvNGB0LosINCg0LXRgdC_LiDQotCw0YLQsNGA0YHRgtCw0L0!5e0!3m2!1sru!2sru!4v1728819387697!5m2!1sru!2sru"
+            width="800"
+            height="600"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
+      </div>
     </section>
 
     <footer class="footer">
-        <div class="footer__container">
-            <div class="footer__logo-cont">
-                <img src="./assets/img/main-logo.png" alt="FooterLogo" class="footer__logo">
-                <p class="footer__p">© 2006-2024 All Rights Reserved</p>
-            </div>
-            <nav class="footer__nav">
-                <ul class="footer__menu">
-                    <li class="footer__item">
-                        <a href="#header" class="header__link_home">Главная</a>
-                    </li>
-                    <li class="footer__item">
-                        <a href="#map" class="header__link_home">Карта</a>
-                    </li>
-                    <li class="footer__item">
-                        <a href="./Attractions.html" class="footer__link_katalog">Достопримечательности</a>
-                    </li>
-                    <li class="footer__item">
-                        <a href="./about.html" class="footer__link_comment">Контакты</a>
-                    </li>
-                </ul>           
-            </nav>
-            <div class="footer__info">
-                <div class="footer__icon">
-                    <a href="#"><img src="./assets/img/vk-icon.png" alt="vk" class="footer__icon-vk"></a>
-                    <a href="#"><img src="./assets/img/ins-icon.png" alt="inst" class="footer__icon-inst"></a>
-                    <a href="#"><img src="./assets/img/tg-icon.png" alt="tg" class="footer__icon-tg"></a>
-                </div>
-                <p class="footer__number">8 (499) 923-22-78</p>
-                <p class="footer__mail">pochtasaita@gmail.com</p>
-            </div>
+      <div class="footer__container">
+        <div class="footer__logo-cont">
+          <img
+            src="./assets/img/main-logo.png"
+            alt="FooterLogo"
+            class="footer__logo"
+          />
+          <p class="footer__p">© 2006-2024 All Rights Reserved</p>
         </div>
+        <nav class="footer__nav">
+          <ul class="footer__menu">
+            <li class="footer__item">
+              <a href="#header" class="header__link_home">Главная</a>
+            </li>
+            <li class="footer__item">
+              <a href="#map" class="header__link_home">Карта</a>
+            </li>
+            <li class="footer__item">
+              <a href="./Attractions.html" class="footer__link_katalog"
+                >Достопримечательности</a
+              >
+            </li>
+            <li class="footer__item">
+              <a href="./about.html" class="footer__link_comment">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="footer__info">
+          <div class="footer__icon">
+            <a href="#"
+              ><img
+                src="./assets/img/vk-icon.png"
+                alt="vk"
+                class="footer__icon-vk"
+            /></a>
+            <a href="#"
+              ><img
+                src="./assets/img/ins-icon.png"
+                alt="inst"
+                class="footer__icon-inst"
+            /></a>
+            <a href="#"
+              ><img
+                src="./assets/img/tg-icon.png"
+                alt="tg"
+                class="footer__icon-tg"
+            /></a>
+          </div>
+          <p class="footer__number">8 (499) 923-22-78</p>
+          <p class="footer__mail">pochtasaita@gmail.com</p>
+        </div>
+      </div>
     </footer>
     <script src="./assets/js/utils/burger.js"></script>
     <script src="./assets/js/main/main.js"></script>
-</body>
+  </body>
 </html>
