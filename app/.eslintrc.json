@@ -6,15 +6,15 @@
     },
     "extends": [
       "eslint:recommended",
-      "plugin:prettier/recommended" // Интеграция Prettier в ESLint
+      "plugin:prettier/recommended"
     ],
     "parserOptions": {
       "ecmaVersion": "latest",
       "sourceType": "module"
     },
     "rules": {
-      "no-console": "warn", // Предупреждение при использовании console.log
-      "no-unused-vars": "warn", // Предупреждение при неиспользуемых переменных
-      "prettier/prettier": "error" // Ошибка, если код не соответствует правилам Prettier
+      "no-console": "warn",
+      "no-unused-vars": "warn",
+      "prettier/prettier": "error"
     }
   }
