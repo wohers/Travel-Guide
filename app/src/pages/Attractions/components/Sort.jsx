@@ -1,0 +1,46 @@
+import React from "react";
+import { useState } from "react";
+import Button from "../../../components/Button/Button"; // Импортируем ваш компонент Button
+
+const Sort = ({ onSortChange }) => {
+    const [isDropdownVisible, setDropdownVisible] = useState(false); // Состояние для видимости dropdown
+
+    const toggleDropdown = () => {
+        setDropdownVisible(!isDropdownVisible); // Переключаем видимость dropdown
+    };
+
+    return (
+        <div className="sort">
+            <div className="sort__container">
+                <Button className="sort__container-button" onClick={toggleDropdown}>
+                    Сортировать
+                </Button>
+                <div className={`sort__container-dropdown${isDropdownVisible ? "-show" : ""}`}>
+                    <ul className="sort__container-ul">
+                        {["all", "parks", "monuments", "churches", "landmark", "base"].map((category) => (
+                            <li key={category}>
+                                <Button
+                                    className="sort__container-link"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        onSortChange(category);
+                                        setDropdownVisible(false); // Закрываем dropdown после выбора
+                                    }}
+                                >
+                                    {category === "all" ? "Все статьи" : 
+                                     category === "parks" ? "Парки" : 
+                                     category === "monuments" ? "Музеи" : 
+                                     category === "churches" ? "Церкви" : 
+                                     category === "landmark" ? "Памятники" : 
+                                     "База отдыха"}
+                                </Button>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Sort;
