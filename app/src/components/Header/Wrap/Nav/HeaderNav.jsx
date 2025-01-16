@@ -12,9 +12,9 @@ const HeaderNav = ({ isMenuOpen }) => {
           </Link>
         </li>
         <li className="header__item">
-        <a href="/#map">
-          <Button className="header__link">Карта</Button>
-        </a>
+          <a href="/#map">
+            <Button className="header__link">Карта</Button>
+          </a>
         </li>
         <li className="header__item">
           <Link to="/Attraction">

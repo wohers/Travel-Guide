@@ -17,10 +17,16 @@ const Cards = ({ className, toggleModal }) => {
         />
         <Text className="about__h3">Адрес</Text>
         <Text className="about__p">
-          Мы находимся по адресу - <br /><br />
+          Мы находимся по адресу - <br />
+          <br />
           г. Город, ул. Улица, д. 123
         </Text>
-        <CardLink href="https://www.google.ru/maps" target="_blank" rel="noopener noreferrer" className="about__btn">
+        <CardLink
+          href="https://www.google.ru/maps"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="about__btn"
+        >
           Посмотреть на карте
         </CardLink>
       </Card>
@@ -33,7 +39,8 @@ const Cards = ({ className, toggleModal }) => {
         />
         <Text className="about__h3">Телефон</Text>
         <Text className="about__p">
-          Есть вопросы? Мы поможем! <br /><br />
+          Есть вопросы? Мы поможем! <br />
+          <br />
           +7 (123) 456-78-90 <br />
           или <br />
           +7 (123) 456-78-90
@@ -51,10 +58,11 @@ const Cards = ({ className, toggleModal }) => {
         />
         <Text className="about__h3">Email</Text>
         <Text className="about__p">
-          По поводу сотрудничества оставьте заявку. Мы сами вам напишем! <br /><br />
+          По поводу сотрудничества оставьте заявку. Мы сами вам напишем! <br />
+          <br />
           info@company.com
         </Text>
-        <Button id="openModalBtn" onClick={toggleModal}>  
+        <Button id="openModalBtn" onClick={toggleModal}>
           Связаться
         </Button>
       </Card>

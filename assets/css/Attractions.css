@@ -152,10 +152,16 @@ html {
   border-radius: 6px;
   background-color: rgba(255, 255, 255, 0.29);
 }
-.main__title-container .main__search .main__search-form .main__search-input::-moz-placeholder {
+.main__title-container
+  .main__search
+  .main__search-form
+  .main__search-input::-moz-placeholder {
   color: #aaa;
 }
-.main__title-container .main__search .main__search-form .main__search-input::placeholder {
+.main__title-container
+  .main__search
+  .main__search-form
+  .main__search-input::placeholder {
   color: #aaa;
 }
 .main__title-container .filter {
@@ -185,19 +191,30 @@ html {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
-.main__title-container .filter .filter__container-dropdown .filter__container-ul {
+.main__title-container
+  .filter
+  .filter__container-dropdown
+  .filter__container-ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.main__title-container .filter .filter__container-dropdown .filter__container-ul .filter__container-link {
+.main__title-container
+  .filter
+  .filter__container-dropdown
+  .filter__container-ul
+  .filter__container-link {
   display: block;
   padding: 10px 15px;
   color: #333;
   text-decoration: none;
   font-size: 16px;
 }
-.main__title-container .filter .filter__container-dropdown .filter__container-ul .filter__container-link:hover {
+.main__title-container
+  .filter
+  .filter__container-dropdown
+  .filter__container-ul
+  .filter__container-link:hover {
   background-color: #f1f1f1;
   color: #389143;
 }
@@ -236,14 +253,22 @@ html {
   padding: 0;
   margin: 0;
 }
-.main__title-container .sort .sort__container-dropdown .sort__container-ul .sort__container-link {
+.main__title-container
+  .sort
+  .sort__container-dropdown
+  .sort__container-ul
+  .sort__container-link {
   display: block;
   padding: 10px 15px;
   color: #333;
   text-decoration: none;
   font-size: 16px;
 }
-.main__title-container .sort .sort__container-dropdown .sort__container-ul .sort__container-link:hover {
+.main__title-container
+  .sort
+  .sort__container-dropdown
+  .sort__container-ul
+  .sort__container-link:hover {
   background-color: #f1f1f1;
   color: #389143;
 }
@@ -509,10 +534,13 @@ html {
   display: flex;
   margin-top: 20px;
 }
-.footer__icon-vk, .footer__icon-inst, .footer__icon-tg {
+.footer__icon-vk,
+.footer__icon-inst,
+.footer__icon-tg {
   margin-right: 20px;
 }
-.footer__number, .footer__mail {
+.footer__number,
+.footer__mail {
   margin-top: 15px;
   font-size: 16px;
 }
@@ -552,7 +580,8 @@ html {
   font-weight: bold;
   cursor: pointer;
 }
-.modal .modal-content .close:hover, .modal .modal-content .close:focus {
+.modal .modal-content .close:hover,
+.modal .modal-content .close:focus {
   color: black;
   text-decoration: none;
 }
@@ -573,7 +602,7 @@ html {
   border-radius: 3px;
   font-size: 16px;
 }
-.modal .modal-content form button[type=submit] {
+.modal .modal-content form button[type="submit"] {
   padding: 10px;
   background-color: #4caf50;
   color: white;
@@ -582,7 +611,7 @@ html {
   font-size: 16px;
   cursor: pointer;
 }
-.modal .modal-content form button[type=submit]:hover {
+.modal .modal-content form button[type="submit"]:hover {
   background-color: #45a049;
 }
 
@@ -709,7 +738,8 @@ html {
   font-weight: bold;
   transition: 0.3s;
 }
-.modalimg__closeImg:hover, .modalimg__closeImg:focus {
+.modalimg__closeImg:hover,
+.modalimg__closeImg:focus {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
@@ -723,8 +753,8 @@ html {
   color: #f1f1f1;
   cursor: pointer;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 .modal-navigation.prev {
@@ -733,4 +763,4 @@ html {
 
 .modal-navigation.next {
   right: 30px;
-}/*# sourceMappingURL=Attractions.css.map */
+} /*# sourceMappingURL=Attractions.css.map */

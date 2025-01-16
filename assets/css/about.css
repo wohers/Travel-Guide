@@ -175,23 +175,23 @@ form {
   margin-top: 10px;
 }
 
-input[type=email] {
+input[type="email"] {
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-button[type=submit] {
+button[type="submit"] {
   padding: 10px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-button[type=submit]:hover {
+button[type="submit"]:hover {
   background-color: #45a049;
 }
 
@@ -252,7 +252,8 @@ button[type=submit]:hover {
 .footer__icon-tg {
   margin-right: 20px;
 }
-.footer__number, .footer__mail {
+.footer__number,
+.footer__mail {
   margin-top: 15px;
   font-size: 16px;
 }
@@ -261,4 +262,4 @@ button[type=submit]:hover {
     flex-direction: column;
     align-items: center;
   }
-}/*# sourceMappingURL=about.css.map */
+} /*# sourceMappingURL=about.css.map */

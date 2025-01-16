@@ -1,7 +1,7 @@
-import React from 'react'
-import { Footer } from '../../components/Footer/Footer'
-import AboutContainer from './AboutComponents/AboutContainer'
-import '../About/About.scss'
+import React from 'react';
+import { Footer } from '../../components/Footer/Footer';
+import AboutContainer from './AboutComponents/AboutContainer';
+import '../About/About.scss';
 
 const About = () => {
   return (
@@ -9,8 +9,7 @@ const About = () => {
       <AboutContainer />
       <Footer />
     </div>
+  );
+};
 
-  )
-}
-
-export default About
+export default About;
