@@ -6,16 +6,16 @@ import Form from './Form';
 const ModalContent = ({ onClose }) => {
   const email = useRef(null);
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = event => {
     event.preventDefault();
     const emailValue = email.current.value;
 
     if (emailValue) {
       alert(`Спасибо за обратную связь! Ваш email: ${emailValue}`);
       onClose();
-      localStorage.setItem("userEmail", emailValue);
+      localStorage.setItem('userEmail', emailValue);
     } else {
-      alert("Пожалуйста, введите ваш email.");
+      alert('Пожалуйста, введите ваш email.');
     }
   };
 
@@ -25,7 +25,9 @@ const ModalContent = ({ onClose }) => {
         &times;
       </Button>
       <Text className="modal__h2">Подпишитесь на нашу рассылку</Text>
-      <Text className="modal__p">Будьте в курсе последних новостей и обновлений!</Text>
+      <Text className="modal__p">
+        Будьте в курсе последних новостей и обновлений!
+      </Text>
       <Form id="subscribeForm" onSubmit={handleFormSubmit} ref={email} />
     </div>
   );
