@@ -26,19 +26,16 @@ const Attractions = () => {
         setOrder,
     } = ArticleManager({ baseUrl });
 
-    // Обработчик изменения поискового запроса
     const handleSearchChange = (query) => {
         setSearchQuery(query);
     };
 
-    // Обработчик изменения категории
     const handleSortChange = (category) => {
         setCategory(category);
     };
 
-    // Обработчик изменения порядка сортировки
     const handleFilterChange = (order) => {
-        setOrder(order);
+        setOrder(order); 
     };
 
     return (

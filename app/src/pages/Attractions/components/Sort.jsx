@@ -24,7 +24,7 @@ const Sort = ({ onSortChange }) => {
                                     onClick={(e) => {
                                         e.preventDefault();
                                         onSortChange(category);
-                                        setDropdownVisible(false); // Закрываем dropdown после выбора
+                                        setDropdownVisible(false); 
                                     }}
                                 >
                                     {category === "all" ? "Все статьи" : 

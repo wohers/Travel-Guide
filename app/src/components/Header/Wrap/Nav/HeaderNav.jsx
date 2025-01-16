@@ -17,7 +17,7 @@ const HeaderNav = ({ isMenuOpen }) => {
           </a>
         </li>
         <li className="header__item">
-          <Link to="/Attraction">
+          <Link to="/Attractions">
             <Button className="header__link">Достопримечательности</Button>
           </Link>
         </li>

@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../../components/Button/Button"; // Импортируем ваш компонент Button
+import Button from "../../../components/Button/Button"; 
 
 const Pagination = ({ currentPage, onPageChange }) => {
     return (

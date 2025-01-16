@@ -17,4 +17,4 @@ const Search = ({ searchQuery, onSearchChange }) => {
     );
 };
 
-export default Search; // Убедитесь, что используется default export
+export default Search; 

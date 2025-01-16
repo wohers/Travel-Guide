@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "../../../components/Button/Button"; // Импортируем ваш компонент Button
+import Button from "../../../components/Button/Button";
 
 const Filter = ({ onFilterChange }) => {
     const [isDropdownVisible, setDropdownVisible] = useState(false);
@@ -21,7 +21,7 @@ const Filter = ({ onFilterChange }) => {
                                 className="filter__container-link"
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    onFilterChange("desc"); 
+                                    onFilterChange("asc");
                                     setDropdownVisible(false);
                                 }}
                             >
@@ -33,7 +33,7 @@ const Filter = ({ onFilterChange }) => {
                                 className="filter__container-link"
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    onFilterChange("asc"); 
+                                    onFilterChange("desc"); 
                                     setDropdownVisible(false);
                                 }}
                             >
