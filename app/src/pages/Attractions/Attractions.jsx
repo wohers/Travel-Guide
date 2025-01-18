@@ -35,7 +35,7 @@ const Attractions = () => {
     };
 
     const handleFilterChange = (order) => {
-        setOrder(order); 
+        setOrder(order);
     };
 
     return (

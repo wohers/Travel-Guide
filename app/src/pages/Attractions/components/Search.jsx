@@ -1,16 +1,41 @@
-import React from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
+import debounce from "lodash.debounce";
 
 const Search = ({ searchQuery, onSearchChange }) => {
+  const [localQuery, setLocalQuery] = useState(searchQuery);
+
+  const debouncedSearch = useMemo(
+    () =>
+      debounce((query) => {
+        onSearchChange(query);
+      }, 1000),
+    [onSearchChange]
+  );
+
+  const handleInputChange = useCallback(
+    (e) => {
+      const query = e.target.value;
+      setLocalQuery(query);
+      debouncedSearch(query);
+    },
+    [debouncedSearch]
+  );
+
+  useEffect(() => {
+    return () => {
+      debouncedSearch.cancel();
+    };
+  }, [debouncedSearch]);
+
   return (
     <div className="main__search">
       <form className="main__search-form">
         <input
-          type="text"
-          id="searchInput"
           className="main__search-input"
+          type="text"
+          value={localQuery}
+          onChange={handleInputChange}
           placeholder="Искать здесь..."
-          value={searchQuery}
-          onChange={(e) => onSearchChange(e.target.value)}
         />
       </form>
     </div>
