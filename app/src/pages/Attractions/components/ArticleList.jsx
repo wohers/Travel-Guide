@@ -3,13 +3,10 @@ import React from "react";
 const ArticleList = ({ articles, isLoading }) => {
     return (
         <div className="card">
-            <div className={`loader ${isLoading ? 'active' : ''}`} id="loader">
+            <div className={`loader ${isLoading ? 'active' : ''}`}>
                 <div className="spinner"></div>
             </div>
             <div className="card__articles" id="articles">
-                <div className="loader" id="loader">
-                    <div className="spinner"></div>
-                </div>
                 {articles.map((article) => (
                     <div key={article.id} className="article">
                         <h2 onClick={() => window.open(`shablon.html?id=${article.id}`)}>
@@ -25,4 +22,4 @@ const ArticleList = ({ articles, isLoading }) => {
     );
 };
 
-export default ArticleList; 
+export default ArticleList;
