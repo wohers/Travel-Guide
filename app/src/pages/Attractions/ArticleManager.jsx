@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useSWR from "swr";
+import { useQuery } from "@tanstack/react-query";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -24,9 +24,13 @@ const ArticleManager = ({ baseUrl, itemsPerPage = 10 }) => {
         url.searchParams.append("order", order);
     }
 
-    const { data: rawData, error, isValidating } = useSWR(url.toString(), fetcher);
+    const { data: rawData, error, isLoading } = useQuery({
+        queryKey: ['articles', currentPage, searchQuery, category, order],
+        queryFn: () => fetcher(url.toString()),
+        keepPreviousData: true
+    });
+
     const articles = Array.isArray(rawData) ? rawData : [];
-    const isLoading = isValidating && !rawData && !error;
 
     return {
         articles,
