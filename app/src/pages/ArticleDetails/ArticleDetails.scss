@@ -1,0 +1,298 @@
+.article-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 1440px;
+    margin: 50px auto;
+    border: 1px solid #e0e0e0;
+  
+    h1 {
+      font-size: 28px;
+      color: #222;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+  
+    img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+  
+    p,
+    p1 {
+      margin-top: 25px;
+      font-size: 18px;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .article-details {
+      p,
+      p1 {
+        margin-top: 25px;
+        font-size: 16px;
+        color: #444;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+    }
+  }
+
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 90%;
+        max-width: 600px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        animation: slideIn 0.3s ease-in-out;
+        position: relative;
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+
+            &:hover,
+            &:focus {
+                color: black;
+                text-decoration: none;
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+
+            label {
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            input,
+            textarea,
+            select {
+                margin-bottom: 15px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                font-size: 16px;
+            }
+
+            button[type="submit"] {
+                padding: 10px;
+                background-color: #4caf50;
+                color: white;
+                border: none;
+                border-radius: 3px;
+                font-size: 16px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #45a049;
+                }
+            }
+        }
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#reviews-container {
+  margin: 0 auto;
+  width: 100%;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 25px;
+
+  .review {
+      padding: 25px;
+      margin-bottom: 25px;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      strong {
+          font-size: 22px;
+          color: #333;
+          display: block;
+          margin-bottom: 12px;
+          font-weight: 600;
+      }
+
+      p {
+          margin: 12px 0;
+          font-size: 16px;
+          color: #555;
+          line-height: 1.6;
+      }
+
+      button {
+          background: linear-gradient(135deg, #b64f4f, #bb1b1b);
+          color: white;
+          border: none;
+          padding: 12px 24px;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: 500;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 0.3s ease, transform 0.3s ease;
+
+          &:hover {
+              background: linear-gradient(135deg, #a04545, #a01818);
+              transform: scale(1.05);
+          }
+      }
+  }
+}
+
+#average-rating {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #fff5bf, #ffdc4f);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#average-rating::before {
+    content: "★";
+    font-size: 30px;
+    color: #ffcc00;
+    margin-right: 10px;
+}
+
+#leaveReviewButton {
+    background: linear-gradient(135deg, #80b982, #50b455);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#modalReview {
+    max-width: 542px;
+    max-height: 200px;
+}
+
+.modalimg {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+
+    &__content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-height: 80%;
+        margin-top: 5%;
+    }
+
+    &__closeImg {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    &__closeImg:hover,
+    &__closeImg:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+.modal-navigation {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: #f1f1f1;
+    cursor: pointer;
+    user-select: none;
+}
+
+.modal-navigation.prev {
+    left: 30px;
+}
+
+.modal-navigation.next {
+    right: 30px;
+}
