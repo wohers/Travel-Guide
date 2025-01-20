@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ReviewManager from "./ReviewManager"; // Импортируем ReviewManager
+import ReviewManager from "./ReviewManager"; 
 import '../ArticleDetails/ArticleDetails.scss';
+import Text from '../../components/Text/Text'
+import Img from '../../components/ImgComponents/Img'
+import Iframe from "../Home/Map/MapComponents/Iframe";
+import Button from '../../components/Button/Button'
 
 const ArticleDetails = ({ apiUrl }) => {
-  const { id: articleId } = useParams(); // Получаем articleId из URL
+  const { id: articleId } = useParams(); 
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -23,7 +27,7 @@ const ArticleDetails = ({ apiUrl }) => {
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Error fetching article details:", err);
+        console.error(err);
         setLoading(false);
       });
   }, [articleId, apiUrl]);
@@ -44,68 +48,62 @@ const ArticleDetails = ({ apiUrl }) => {
   };
 
   if (loading) {
-    return <div className="loader">Loading...</div>;
+    return <div className="loader">Загрузка</div>;
   }
 
   if (!article) {
-    return <div>Error loading article details.</div>;
+    return <div>Нету статей</div>;
   }
 
   const images = [article.imageUrl, article.imageUrl2].filter(Boolean);
 
   return (
     <div className="article-details">
-      <h1>{article.title}</h1>
+      <Text className='article-details__title'>{article.title}</Text>
 
-      {article.imageUrl && (
-        <img
+        <Img
           src={article.imageUrl}
           alt={article.title}
           className="imgModal"
           onClick={() => openImageModal(0)}
         />
-      )}
 
-      <p>{article.content}</p>
+      <Text className='article-details__text'>{article.content}</Text>
 
-      {article.imageUrl2 && (
-        <img
+        <Img
           src={article.imageUrl2}
           alt={article.title}
           className="imgModal"
           onClick={() => openImageModal(1)}
         />
-      )}
 
-      {article.content2 && <p>{article.content2}</p>}
+      <Text className='article-details__text'>{article.content2}</Text>
 
-      <iframe
+      <Iframe
         src={`https://maps.google.com/maps?q=${article.latitude},${article.longitude}&z=15&output=embed`}
-        width="100%"
-        height="600"
-        style={{ border: "0" }}
         title="map"
-      ></iframe>
+        className='article-details__map'
+      ></Iframe>
 
-      {/* Передаем управление модальным окном в ReviewManager */}
       <ReviewManager articleId={articleId} apiUrl={apiUrl} />
 
-      {isImageModalOpen && images.length > 0 && (
+      {isImageModalOpen && (
         <div className="modalimg" style={{ display: isImageModalOpen ? "block" : "none" }}>
-          <span className="modalimg__closeImg" onClick={closeImageModal}>
+          <Button className="modalimg__closeImg" onClick={closeImageModal}>
             &times;
-          </span>
-          <img
+          </Button>
+
+          <Img
             src={images[currentImageIndex]}
             alt={article.title}
             className="modalimg__content"
           />
-          <span className="modal-navigation prev" onClick={() => navigateImage(-1)}>
+          <Button className="modal-navigation prev" onClick={() => navigateImage(-1)}>
             &#10094;
-          </span>
-          <span className="modal-navigation next" onClick={() => navigateImage(1)}>
+          </Button>
+          <Button className="modal-navigation next" onClick={() => navigateImage(1)}>
             &#10095;
-          </span>
+          </Button>
         </div>
       )}
     </div>
