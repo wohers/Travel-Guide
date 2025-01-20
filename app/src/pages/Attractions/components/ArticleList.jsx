@@ -1,8 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Импортируем useNavigate для навигации
+import { useNavigate } from "react-router-dom"; 
 
 const ArticleList = ({ articles, isLoading }) => {
-  const navigate = useNavigate(); // Хук для навигации
+  const navigate = useNavigate(); 
 
   return (
     <div className="card">
@@ -12,7 +12,6 @@ const ArticleList = ({ articles, isLoading }) => {
       <div className="card__articles" id="articles">
         {articles.map((article) => (
           <div key={article.id} className="article">
-            {/* Используем navigate для перехода на страницу с деталями статьи */}
             <h2 onClick={() => navigate(`/attractions/${article.id}`)}>
               {article.title}
             </h2>

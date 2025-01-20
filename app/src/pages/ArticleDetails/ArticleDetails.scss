@@ -10,7 +10,7 @@
     margin: 50px auto;
     border: 1px solid #e0e0e0;
   
-    h1 {
+    &__title {
       font-size: 28px;
       color: #222;
       margin-bottom: 20px;
@@ -26,14 +26,19 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     }
   
-    p,
-    p1 {
+    &__text {
       margin-top: 25px;
       font-size: 18px;
       color: #444;
       line-height: 1.8;
       margin-bottom: 20px;
       text-align: justify;
+    }
+
+    &__map {
+        width: 100%;
+        height: 600px;
+        border: none;
     }
   }
   
@@ -190,11 +195,9 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: background 0.3s ease, transform 0.3s ease;
 
           &:hover {
               background: linear-gradient(135deg, #a04545, #a01818);
-              transform: scale(1.05);
           }
       }
   }
@@ -214,12 +217,6 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-#average-rating::before {
-    content: "★";
-    font-size: 30px;
-    color: #ffcc00;
-    margin-right: 10px;
-}
 
 #leaveReviewButton {
     background: linear-gradient(135deg, #80b982, #50b455);
@@ -269,11 +266,12 @@
         font-size: 40px;
         font-weight: bold;
         transition: 0.3s;
+        background-color: rgba(255, 255, 255, 0);
     }
 
     &__closeImg:hover,
     &__closeImg:focus {
-        color: #bbb;
+        color: #e70000;
         text-decoration: none;
         cursor: pointer;
     }
@@ -286,7 +284,7 @@
     font-size: 30px;
     color: #f1f1f1;
     cursor: pointer;
-    user-select: none;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 .modal-navigation.prev {

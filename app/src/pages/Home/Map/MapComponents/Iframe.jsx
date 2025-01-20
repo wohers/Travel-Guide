@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Iframe = ({ src, title }) => {
-  return <iframe src={src} title={title} />;
+const Iframe = ({ src, title, className }) => {
+  return <iframe src={src} title={title} className={className}/>;
 };
 
 export default Iframe;
