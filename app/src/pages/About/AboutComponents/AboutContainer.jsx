@@ -27,7 +27,7 @@ const AboutContainer = () => {
       </div>
       <Modal
         id="modal"
-        className={`modal ${openModal ? 'modal--open' : ''}`}
+        className={`modalContact ${openModal ? 'modalContact--open' : ''}`}
         isOpen={openModal}
         onClose={toggleModal}
       >

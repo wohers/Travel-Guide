@@ -146,8 +146,7 @@
 }
 
 // Модальное окно
-.modal {
-  display: none; // По умолчанию модальное окно скрыто
+.modalContact {
 
   &--open {
     display: flex;

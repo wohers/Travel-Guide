@@ -21,11 +21,11 @@ const ModalContent = ({ onClose }) => {
 
   return (
     <div>
-      <Button className="modal__close" onClick={onClose}>
+      <Button className="modalContact__close" onClick={onClose}>
         &times;
       </Button>
-      <Text className="modal__h2">Подпишитесь на нашу рассылку</Text>
-      <Text className="modal__p">
+      <Text className="modalContact__h2">Подпишитесь на нашу рассылку</Text>
+      <Text className="modalContact__p">
         Будьте в курсе последних новостей и обновлений!
       </Text>
       <Form id="subscribeForm" onSubmit={handleFormSubmit} ref={email} />
