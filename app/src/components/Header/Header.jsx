@@ -3,7 +3,7 @@ import '../Header/header.scss';
 import HeaderWrap from './Wrap/HeaderWrap';
 import Button from '../../components/Button/Button';
 
-export const Header = () => {
+export const Header = ({ id }) => {
   const scroll = () => {
     const header = document.getElementById('header');
     if (header) {
@@ -13,7 +13,7 @@ export const Header = () => {
 
   return (
     <>
-      <header id="header">
+      <header id={id}>
         <div className="container">
           <HeaderWrap />
         </div>
