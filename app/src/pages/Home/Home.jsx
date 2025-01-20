@@ -24,6 +24,8 @@ const Home = () => {
         header.scrollIntoView({ behavior: 'smooth' });
         setIsHeaderVisible(true);
       }
+    } else {
+      console.error('Header или Footer не найдены в DOM');
     }
   };
 
