@@ -1,12 +1,12 @@
-import React from "react";
-import { useNavigate } from "react-router-dom"; 
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ArticleList = ({ articles, isLoading }) => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   return (
     <div className="card">
-      <div className={`loader ${isLoading ? "active" : ""}`}>
+      <div className={`loader ${isLoading ? 'active' : ''}`}>
         <div className="spinner"></div>
       </div>
       <div className="card__articles" id="articles">

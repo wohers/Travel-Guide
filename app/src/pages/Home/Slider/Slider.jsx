@@ -20,13 +20,13 @@ export const Slider = () => {
   ];
 
   const showPreviousSlide = () => {
-    setSlideIndex(prevIndex =>
+    setSlideIndex((prevIndex) =>
       prevIndex === 0 ? slides.length - 1 : prevIndex - 1
     );
   };
 
   const showNextSlide = () => {
-    setSlideIndex(prevIndex =>
+    setSlideIndex((prevIndex) =>
       prevIndex === slides.length - 1 ? 0 : prevIndex + 1
     );
   };

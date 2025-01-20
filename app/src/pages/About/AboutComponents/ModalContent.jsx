@@ -6,7 +6,7 @@ import Form from './Form';
 const ModalContent = ({ onClose }) => {
   const email = useRef(null);
 
-  const handleFormSubmit = event => {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
     const emailValue = email.current.value;
 

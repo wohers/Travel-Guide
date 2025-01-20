@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
-import debounce from "lodash.debounce";
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import debounce from 'lodash.debounce';
 
 const Search = ({ searchQuery, onSearchChange }) => {
   const [localQuery, setLocalQuery] = useState(searchQuery);

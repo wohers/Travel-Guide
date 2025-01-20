@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const Option = ({ value, children }) => {
-  return (
-    <option value={value}>{children}</option>
-  )
-}
+  return <option value={value}>{children}</option>;
+};
 
-export default Option
+export default Option;

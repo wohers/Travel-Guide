@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Button from "../../../components/Button/Button";
+import React, { useState } from 'react';
+import Button from '../../../components/Button/Button';
 
 const Filter = ({ onFilterChange }) => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
@@ -15,7 +15,7 @@ const Filter = ({ onFilterChange }) => {
           Фильтр
         </Button>
         <div
-          className={`filter__container-dropdown${isDropdownVisible ? " filter__container-dropdown-show" : ""}`}
+          className={`filter__container-dropdown${isDropdownVisible ? ' filter__container-dropdown-show' : ''}`}
         >
           <ul className="filter__container-ul">
             <li>
@@ -23,7 +23,7 @@ const Filter = ({ onFilterChange }) => {
                 className="filter__container-link"
                 onClick={(e) => {
                   e.preventDefault();
-                  onFilterChange("asc");
+                  onFilterChange('asc');
                   setDropdownVisible(false);
                 }}
               >
@@ -35,7 +35,7 @@ const Filter = ({ onFilterChange }) => {
                 className="filter__container-link"
                 onClick={(e) => {
                   e.preventDefault();
-                  onFilterChange("desc");
+                  onFilterChange('desc');
                   setDropdownVisible(false);
                 }}
               >

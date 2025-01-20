@@ -1,6 +1,6 @@
-import React from "react";
-import { useState } from "react";
-import Button from "../../../components/Button/Button";
+import React from 'react';
+import { useState } from 'react';
+import Button from '../../../components/Button/Button';
 
 const Sort = ({ onSortChange }) => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
@@ -16,10 +16,10 @@ const Sort = ({ onSortChange }) => {
           Сортировать
         </Button>
         <div
-          className={`sort__container-dropdown${isDropdownVisible ? " sort__container-dropdown-show" : ""}`}
+          className={`sort__container-dropdown${isDropdownVisible ? ' sort__container-dropdown-show' : ''}`}
         >
           <ul className="sort__container-ul">
-            {["all", "parks", "monuments", "churches", "landmark", "base"].map(
+            {['all', 'parks', 'monuments', 'churches', 'landmark', 'base'].map(
               (category) => (
                 <li key={category}>
                   <Button
@@ -30,17 +30,17 @@ const Sort = ({ onSortChange }) => {
                       setDropdownVisible(false);
                     }}
                   >
-                    {category === "all"
-                      ? "Все статьи"
-                      : category === "parks"
-                        ? "Парки"
-                        : category === "monuments"
-                          ? "Музеи"
-                          : category === "churches"
-                            ? "Церкви"
-                            : category === "landmark"
-                              ? "Памятники"
-                              : "База отдыха"}
+                    {category === 'all'
+                      ? 'Все статьи'
+                      : category === 'parks'
+                        ? 'Парки'
+                        : category === 'monuments'
+                          ? 'Музеи'
+                          : category === 'churches'
+                            ? 'Церкви'
+                            : category === 'landmark'
+                              ? 'Памятники'
+                              : 'База отдыха'}
                   </Button>
                 </li>
               )

@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../../../components/Button/Button';
 import FormInput from '../../About/AboutComponents/FormInput';
 import Select from './Select';
-import Option from './Option'
+import Option from './Option';
 
 const ReviewForm = ({ onSubmit, onClose }) => {
   return (
@@ -26,11 +26,11 @@ const ReviewForm = ({ onSubmit, onClose }) => {
         <textarea id="modalReview" name="review" rows="5" required></textarea>
         <label htmlFor="modalRating">Оценка:</label>
         <Select>
-            <Option value="1">1</Option>
-            <Option value="2">2</Option>
-            <Option value="3">3</Option>
-            <Option value="4">4</Option>
-            <Option value="5">5</Option>
+          <Option value="1">1</Option>
+          <Option value="2">2</Option>
+          <Option value="3">3</Option>
+          <Option value="4">4</Option>
+          <Option value="5">5</Option>
         </Select>
         <Button type="submit">Отправить</Button>
       </form>

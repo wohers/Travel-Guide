@@ -128,20 +128,20 @@
   }
 }
 
-.yakor__btn{
-  position: fixed; 
-  bottom: 20px;    
-  right: 20px;    
-  z-index: 1000;   
-  padding: 15px 20px; 
+.yakor__btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  padding: 15px 20px;
   background-color: #214916;
-  color: white; 
-  border: none; 
-  border-radius: 100%; 
-  cursor: pointer; 
-  transition: background-color 0.3s ease; 
+  color: white;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #11250b; 
+    background-color: #11250b;
   }
 }

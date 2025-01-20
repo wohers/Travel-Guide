@@ -1,12 +1,11 @@
-import React from 'react'
-
+import React from 'react';
 
 const Select = ({ children }) => {
-    return (
-        <select id="modalRating" name="rating" required>
-            {children}
-        </select>
-    )
-}
+  return (
+    <select id="modalRating" name="rating" required>
+      {children}
+    </select>
+  );
+};
 
-export default Select
+export default Select;

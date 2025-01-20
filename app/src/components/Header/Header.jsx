@@ -4,7 +4,6 @@ import HeaderWrap from './Wrap/HeaderWrap';
 import Button from '../../components/Button/Button';
 
 export const Header = () => {
-
   const scroll = () => {
     const header = document.getElementById('header');
     if (header) {
