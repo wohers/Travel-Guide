@@ -34,7 +34,7 @@ const ArticleManager = ({ baseUrl, itemsPerPage = 10 }) => {
     keepPreviousData: true,
   });
 
-  const articles = Array.isArray(rawData) ? rawData : [];
+  const articles = rawData ? rawData : [];
 
   return {
     articles,

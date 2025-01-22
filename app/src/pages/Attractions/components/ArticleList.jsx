@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom';
 const ArticleList = ({ articles, isLoading }) => {
   const navigate = useNavigate();
 
+  if (!Array.isArray(articles)) {
+    return <div>Не найдено</div>;
+  }
+
   return (
     <div className="card">
       <div className={`loader ${isLoading ? 'active' : ''}`}>

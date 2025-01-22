@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import debounce from 'lodash.debounce';
 
 const Search = ({ searchQuery, onSearchChange }) => {
@@ -12,20 +12,11 @@ const Search = ({ searchQuery, onSearchChange }) => {
     [onSearchChange]
   );
 
-  const handleInputChange = useCallback(
-    (e) => {
-      const query = e.target.value;
-      setLocalQuery(query);
-      debouncedSearch(query);
-    },
-    [debouncedSearch]
-  );
-
-  useEffect(() => {
-    return () => {
-      debouncedSearch.cancel();
-    };
-  }, [debouncedSearch]);
+  const handleInputChange = (e) => {
+    const query = e.target.value;
+    setLocalQuery(query);
+    debouncedSearch(query);
+  };
 
   return (
     <div className="main__search">

@@ -1,6 +1,7 @@
 import React from 'react';
+import { forwardRef } from 'react';
 
-const FormInput = React.forwardRef(function FormInput(
+const FormInput = forwardRef(function FormInput(
   { type, id, placeholder, required },
   ref
 ) {

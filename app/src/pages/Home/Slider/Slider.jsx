@@ -35,7 +35,7 @@ export const Slider = () => {
     <main className="slider">
       <SlideTitle className="slider__title">Нижнекамск</SlideTitle>
       <div className="slider__container">
-        <SliderImage src={slides[slideIndex]} alt={`Slide ${slideIndex + 1}`} />
+        <SliderImage src={slides[slideIndex]} alt={`${slideIndex}`} />
         <SlideControle onPrevious={showPreviousSlide} onNext={showNextSlide} />
       </div>
     </main>
