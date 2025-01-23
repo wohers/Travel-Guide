@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/Travel-Guide/static/css/main.94a454f2.css",
+    "main.js": "/Travel-Guide/static/js/main.78d1c534.js",
+    "static/media/nk3.jpg": "/Travel-Guide/static/media/nk3.d647b512fc5ac5255003.jpg",
+    "static/media/nk6.jpg": "/Travel-Guide/static/media/nk6.5f9138b2f3fca5471826.jpg",
+    "static/media/olimp11.jpg": "/Travel-Guide/static/media/olimp11.6456d8ffcf4c1abf5b95.jpg",
+    "static/media/nk1.jpg": "/Travel-Guide/static/media/nk1.5851b61f6ecbe87bf0ff.jpg",
+    "static/media/rm11.jpg": "/Travel-Guide/static/media/rm11.e4b6c48ed2912167f992.jpg",
+    "static/media/main-logo.png": "/Travel-Guide/static/media/main-logo.1de26f2d0080496f4663.png",
+    "index.html": "/Travel-Guide/index.html",
+    "main.94a454f2.css.map": "/Travel-Guide/static/css/main.94a454f2.css.map",
+    "main.78d1c534.js.map": "/Travel-Guide/static/js/main.78d1c534.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.94a454f2.css",
+    "static/js/main.78d1c534.js"
+  ]
+}
