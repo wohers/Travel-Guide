@@ -9,7 +9,7 @@ import Button from '../../components/Button/Button';
 
 const ArticleDetails = ({ apiUrl }) => {
   const { id: articleId } = useParams();
-  const [article, setArticle] = useState(null);
+  const [article, setArticle] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
@@ -24,12 +24,13 @@ const ArticleDetails = ({ apiUrl }) => {
       })
       .then((data) => {
         setArticle(data);
-        setLoading(false);
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
         setLoading(false);
-      });
+      })    
   }, [articleId, apiUrl]);
 
   const openImageModal = (index) => {
