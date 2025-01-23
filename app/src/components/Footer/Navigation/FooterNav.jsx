@@ -7,7 +7,7 @@ const FooterNav = () => {
     <nav className="footer__nav">
       <ul className="footer__menu">
         <li className="footer__item">
-          <Link to="/">
+          <Link to="/Travel-Guide">
             <Button className="footer__button">Главная</Button>
           </Link>
         </li>

@@ -7,7 +7,7 @@ const HeaderNav = ({ isMenuOpen }) => {
     <nav className="header__nav">
       <ul className={`header__menu ${isMenuOpen ? 'active' : ''}`} id="menu">
         <li className="header__item">
-          <Link to="/">
+          <Link to="/Travel-Guide">
             <Button className="header__link">Главная</Button>
           </Link>
         </li>
