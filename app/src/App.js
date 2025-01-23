@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <QueryClientProvider client={queryClient}>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/Travel-Guide" element={<Home />} /> 
           <Route path="/about" element={<About />} />
           <Route path="/attractions" element={<Attractions />} />
           <Route
