@@ -18,7 +18,7 @@ const ArticleDetails = ({ apiUrl }) => {
     fetch(`${apiUrl}/${articleId}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error('Ошибка сети');
         }
         return response.json();
       })
@@ -56,7 +56,7 @@ const ArticleDetails = ({ apiUrl }) => {
     return <div>Нету статей</div>;
   }
 
-  const images = [article.imageUrl, article.imageUrl2].filter(Boolean);
+  const images = [article.imageUrl, article.imageUrl2];
 
   return (
     <div className="article-details">
